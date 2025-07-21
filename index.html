@@ -52,7 +52,7 @@
         }
 
         /* ADDITIONAL SYK PROTEIN STRUCTURE OVERLAY:
-           Creates an even more subtle protein domain representation using CSS pseudo-element */
+           Creates a visible but subtle protein domain representation using CSS pseudo-element */
         body::before {
             content: '';
             position: fixed; /* Fixed positioning so it doesn't scroll */
@@ -60,9 +60,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Base64 encoded SVG representing simplified Syk kinase domains */
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIG9wYWNpdHk9IjAuMDEiPgo8IS0tIFN5ayBraW5hc2UgZG9tYWluIHJlcHJlc2VudGF0aW9uIC0tPgo8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjMwIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjEiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iMTUwIiByPSIzNSIgZmlsbD0iI0NGQjUzQiIgb3BhY2l0eT0iMC4wOCIvPgo8Y2lyY2xlIGN4PSIyMDAiIGN5PSIyNTAiIHI9IjQwIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjA2Ii8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjIwMCIgcj0iMjUiIGZpbGw9IiNDRkI1M0IiIG9wYWNpdHk9IjAuMDUiLz4KPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSIyOCIgZmlsbD0iI0NGQjUzQiIgb3BhY2l0eT0iMC4wNyIvPgo8Y2lyY2xlIGN4PSIxMjAiIGN5PSIzMDAiIHI9IjMyIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjA0Ii8+CjwvZz4KPC9zdmc+');
-            background-size: 600px 600px;
+            /* Syk protein structure with higher opacity - representing SH2 domains and kinase domain */
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDgwMCA4MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIG9wYWNpdHk9IjAuMDgiPgo8IS0tIFN5ayBraW5hc2UgZG9tYWluIHN0cnVjdHVyZSAtLT4KPGJ5Y2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjUwIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjMiLz4KPGJ5Y2xlIGN4PSI0MDAiIGN5PSIyNTAiIHI9IjYwIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjI1Ii8+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjQwMCIgcj0iODAiIGZpbGw9IiNDRkI1M0IiIG9wYWNpdHk9IjAuMiIvPgo8Y2lyY2xlIGN4PSIxNTAiIGN5PSIzNTAiIHI9IjQwIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjE1Ii8+CjxjaXJjbGUgY3g9IjU1MCIgY3k9IjE4MCIgcj0iNDUiIGZpbGw9IiNDRkI1M0IiIG9wYWNpdHk9IjAuMjIiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iNTUwIiByPSI1NSIgZmlsbD0iI0NGQjUzQiIgb3BhY2l0eT0iMC4xOCIvPgo8Y2lyY2xlIGN4PSI1MDAiIGN5PSI0NzAiIHI9IjM1IiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iMzAiIGZpbGw9IiNDRkI1M0IiIG9wYWNpdHk9IjAuMTQiLz4KPGNpcmNsZSBjeD0iNjAwIiBjeT0iNDAwIiByPSI0MiIgZmlsbD0iI0NGQjUzQiIgb3BhY2l0eT0iMC4xNiIvPgo8L2c+Cjwvc3ZnPg==');
+            background-size: 1000px 1000px;
             background-position: center;
             background-repeat: no-repeat;
             pointer-events: none; /* Don't interfere with mouse interactions */
@@ -726,3 +726,336 @@
                         <div class="news-date">2024</div>
                         <p><strong>Another Important Publication</strong><br>
                         Authors. <em>Journal Name</em>, vol, pages (2024).</p>
+                    </div>
+                    
+                    <!-- PUBLICATION 3 -->
+                    <!-- TODO: Replace with actual publication information -->
+                    <div class="news-item">
+                        <div class="news-date">2023</div>
+                        <p><strong>Previous Year's Work</strong><br>
+                        Authors. <em>Journal Name</em>, vol, pages (2023).</p>
+                    </div>
+                    
+                    <!-- TO ADD MORE PUBLICATIONS:
+                         Copy one of the above .news-item divs and update:
+                         - news-date (year)
+                         - Publication title (in <strong> tags)
+                         - Authors and journal information -->
+                         
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             NEWS SECTION
+             Lab news, updates, and announcements
+             =================================================================== -->
+        <section id="news" class="section">
+            <div class="container">
+                <h2 class="section-title">Lab News</h2>
+                
+                <div style="max-width: 800px; margin: 0 auto;">
+                    
+                    <!-- NEWS ITEM 1 -->
+                    <!-- TODO: Replace with actual lab news -->
+                    <div class="news-item">
+                        <div class="news-date">July 2025</div>
+                        <p>Welcome to our new graduate student! [Name] joins the lab to work on [project area].</p>
+                    </div>
+                    
+                    <!-- NEWS ITEM 2 -->
+                    <!-- TODO: Replace with actual lab news -->
+                    <div class="news-item">
+                        <div class="news-date">June 2025</div>
+                        <p>Congratulations to [Student Name] for their paper acceptance in [Journal Name]!</p>
+                    </div>
+                    
+                    <!-- NEWS ITEM 3 -->
+                    <!-- TODO: Replace with actual lab news -->
+                    <div class="news-item">
+                        <div class="news-date">May 2025</div>
+                        <p>Our lab presented [number] posters at the [Conference Name] conference.</p>
+                    </div>
+                    
+                    <!-- TO ADD MORE NEWS ITEMS:
+                         Copy one of the above .news-item divs and update:
+                         - news-date
+                         - News content -->
+                         
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             CONTACT SECTION
+             Contact information and lab location
+             =================================================================== -->
+        <section id="contact" class="section" style="background: #1a1a1a;">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                
+                <!-- Contact information grid -->
+                <div class="contact-info">
+                    
+                    <!-- LAB LOCATION -->
+                    <!-- TODO: Verify address is current -->
+                    <div class="contact-card">
+                        <h3>Lab Location</h3>
+                        <p>Department of Medicinal Chemistry<br>
+                        and Molecular Pharmacology<br>
+                        Purdue University<br>
+                        West Lafayette, IN 47907</p>
+                    </div>
+                    
+                    <!-- PRINCIPAL INVESTIGATOR CONTACT -->
+                    <!-- TODO: Verify contact information is current -->
+                    <div class="contact-card">
+                        <h3>Principal Investigator</h3>
+                        <p><strong>Dr. Carol Beth Post</strong><br>
+                        Email: cbp@purdue.edu<br>
+                        Phone: (765) 494-1393<br>
+                        Office: RHPH Building</p>
+                    </div>
+                    
+                    <!-- PROSPECTIVE STUDENTS -->
+                    <!-- TODO: Update application information if needed -->
+                    <div class="contact-card">
+                        <h3>Prospective Students</h3>
+                        <p>Interested in joining our group?<br>
+                        Please email Dr. Post with your CV and research interests in protein dynamics, NMR, or computational biology.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================================================================
+         FOOTER SECTION
+         Copyright and university affiliation
+         =================================================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Post Lab Research Group. All rights reserved.</p>
+            <p>Purdue University | Department of Medicinal Chemistry and Molecular Pharmacology</p>
+        </div>
+    </footer>
+
+    <!-- ===================================================================
+         JAVASCRIPT SECTION
+         Handles navigation, animations, and interactive features
+         =================================================================== -->
+    <script>
+        /* ===================================================================
+           NAVIGATION FUNCTIONS
+           Controls showing/hiding different page sections
+           =================================================================== */
+        
+        /**
+         * Main navigation function - shows selected section and hides others
+         * @param {string} sectionName - The name of the section to show ('home', 'team', etc.)
+         */
+        function showSection(sectionName) {
+            // Hide all sections first
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+                section.classList.remove('active');
+            });
+            
+            const heroSection = document.querySelector('.hero');
+            
+            // Show the selected section
+            if (sectionName === 'home') {
+                // Special case for home - show hero section
+                heroSection.style.display = 'block';
+                heroSection.classList.remove('hidden');
+            } else {
+                // Hide hero and show selected section
+                heroSection.style.display = 'none';
+                heroSection.classList.add('hidden');
+                
+                const targetSection = document.getElementById(sectionName);
+                if (targetSection) {
+                    targetSection.style.display = 'block';
+                    targetSection.classList.add('active');
+                }
+            }
+            
+            // Update active nav link styling
+            updateActiveNavLink(sectionName);
+        }
+
+        /**
+         * Updates the active navigation link styling
+         * @param {string} sectionName - The currently active section
+         */
+        function updateActiveNavLink(sectionName) {
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to current section's nav link
+            const activeLink = document.querySelector(`[data-section="${sectionName}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        /* ===================================================================
+           NEWS BANNER FUNCTIONS
+           Controls the rotating news banner functionality
+           =================================================================== */
+        
+        /**
+         * Hides the news banner when close button is clicked
+         */
+        function hideNewsBanner() {
+            const banner = document.getElementById('newsBanner');
+            if (banner) {
+                banner.style.display = 'none';
+            }
+        }
+
+        /**
+         * Array of rotating news messages
+         * TODO: Update these messages with current lab news
+         */
+        const newsMessages = [
+            "Check out our latest publication on protein dynamics!",
+            "New MD simulation tools now available on GitHub!",
+            "Join us at the upcoming Biophysical Society meeting!",
+            "Latest Syk kinase research results published!",
+            "NMR facility upgrades completed - book your time!"
+        ];
+
+        /**
+         * Rotates through different news messages in the banner
+         */
+        function rotateNews() {
+            const newsText = document.querySelector('.news-text');
+            if (newsText) {
+                // Pick a random message from the array
+                const randomMessage = newsMessages[Math.floor(Math.random() * newsMessages.length)];
+                newsText.textContent = randomMessage;
+            }
+        }
+
+        /* ===================================================================
+           MOBILE NAVIGATION
+           Handles responsive navigation for mobile devices
+           =================================================================== */
+        
+        /**
+         * Creates and manages mobile hamburger menu
+         */
+        function initializeMobileNav() {
+            const navLinks = document.querySelector('.nav-links');
+            const burger = document.createElement('div');
+            burger.innerHTML = '☰'; // Hamburger icon
+            burger.style.cssText = 'display: none; font-size: 1.5rem; cursor: pointer; color: #CFB53B;';
+            
+            /**
+             * Checks screen size and toggles mobile nav display
+             */
+            function checkScreen() {
+                if (window.innerWidth <= 768) {
+                    // Mobile view
+                    burger.style.display = 'block';
+                    if (!document.querySelector('.burger')) {
+                        burger.className = 'burger';
+                        document.querySelector('nav').appendChild(burger);
+                        
+                        // Add click event to toggle nav menu
+                        burger.addEventListener('click', function() {
+                            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                        });
+                    }
+                } else {
+                    // Desktop view
+                    burger.style.display = 'none';
+                    navLinks.style.display = 'flex';
+                }
+            }
+            
+            // Check on window resize
+            window.addEventListener('resize', checkScreen);
+            checkScreen(); // Initial check
+        }
+
+        /* ===================================================================
+           INITIALIZATION
+           Sets up the page when it first loads
+           =================================================================== */
+        
+        /**
+         * Main initialization function - runs when page loads
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force hide all sections first to ensure clean state
+            const allSections = document.querySelectorAll('.section');
+            allSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show home page by default
+            showSection('home');
+            
+            // Initialize mobile navigation
+            initializeMobileNav();
+            
+            // Start news rotation every 5 seconds
+            setInterval(rotateNews, 5000);
+            
+            // Optional: Add smooth scrolling for better UX
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+
+        /* ===================================================================
+           ADDITIONAL INTERACTIVE FEATURES
+           Optional enhancements for better user experience
+           =================================================================== */
+        
+        /**
+         * Add hover effects to team member cards (optional enhancement)
+         */
+        function initializeTeamCardEffects() {
+            const teamCards = document.querySelectorAll('.team-member');
+            teamCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    // Optional: Add additional hover effects here
+                });
+            });
+        }
+
+        /**
+         * Lazy load images when they come into view (optional performance enhancement)
+         * Useful when actual photos are added to replace placeholders
+         */
+        function initializeLazyLoading() {
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        // Initialize additional features when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTeamCardEffects();
+            // Uncomment next line when adding lazy loading for images
+            // initializeLazyLoading();
+        });
+    </script>
+</body>
+</html>
