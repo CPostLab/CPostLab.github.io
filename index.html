@@ -37,22 +37,11 @@
             min-height: 100vh; /* Minimum full viewport height */
             display: flex;
             flex-direction: column; /* Stack header, main, footer vertically */
-            
-            /* SYK PROTEIN BACKGROUND IMPLEMENTATION:
-               Multiple radial gradients create a subtle protein-like pattern
-               Very low opacity (0.02-0.03) ensures readability */
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(207, 181, 59, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(207, 181, 59, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(207, 181, 59, 0.02) 0%, transparent 30%);
-            background-size: 400px 400px, 350px 350px, 200px 200px;
-            background-position: 0 0, 100% 100%, 50% 50%;
-            background-repeat: no-repeat;
             position: relative;
         }
 
-        /* ADDITIONAL SYK PROTEIN STRUCTURE OVERLAY:
-           Creates a visible but subtle protein domain representation using CSS pseudo-element */
+        /* ABSTRACT BACKGROUND PATTERNS:
+           Creates subtle honeycomb and geometric patterns for visual interest */
         body::before {
             content: '';
             position: fixed; /* Fixed positioning so it doesn't scroll */
@@ -60,13 +49,47 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Syk protein structure with higher opacity - representing SH2 domains and kinase domain */
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDgwMCA4MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIG9wYWNpdHk9IjAuMDgiPgo8IS0tIFN5ayBraW5hc2UgZG9tYWluIHN0cnVjdHVyZSAtLT4KPGJ5Y2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjUwIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjMiLz4KPGJ5Y2xlIGN4PSI0MDAiIGN5PSIyNTAiIHI9IjYwIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjI1Ii8+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjQwMCIgcj0iODAiIGZpbGw9IiNDRkI1M0IiIG9wYWNpdHk9IjAuMiIvPgo8Y2lyY2xlIGN4PSIxNTAiIGN5PSIzNTAiIHI9IjQwIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjE1Ii8+CjxjaXJjbGUgY3g9IjU1MCIgY3k9IjE4MCIgcj0iNDUiIGZpbGw9IiNDRkI1M0IiIG9wYWNpdHk9IjAuMjIiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iNTUwIiByPSI1NSIgZmlsbD0iI0NGQjUzQiIgb3BhY2l0eT0iMC4xOCIvPgo8Y2lyY2xlIGN4PSI1MDAiIGN5PSI0NzAiIHI9IjM1IiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iMzAiIGZpbGw9IiNDRkI1M0IiIG9wYWNpdHk9IjAuMTQiLz4KPGNpcmNsZSBjeD0iNjAwIiBjeT0iNDAwIiByPSI0MiIgZmlsbD0iI0NGQjUzQiIgb3BhY2l0eT0iMC4xNiIvPgo8L2c+Cjwvc3ZnPg==');
-            background-size: 1000px 1000px;
-            background-position: center;
-            background-repeat: no-repeat;
+            /* Honeycomb and geometric pattern overlay */
+            background-image: 
+                /* Honeycomb pattern */
+                radial-gradient(circle at 25% 25%, transparent 20%, rgba(207, 181, 59, 0.02) 21%, rgba(207, 181, 59, 0.02) 30%, transparent 31%),
+                radial-gradient(circle at 75% 75%, transparent 20%, rgba(0, 212, 170, 0.015) 21%, rgba(0, 212, 170, 0.015) 30%, transparent 31%),
+                /* Hexagonal dots */
+                radial-gradient(circle at 50% 50%, rgba(207, 181, 59, 0.025) 1px, transparent 2px),
+                /* Subtle grid lines */
+                linear-gradient(0deg, transparent 49%, rgba(207, 181, 59, 0.008) 50%, transparent 51%),
+                linear-gradient(90deg, transparent 49%, rgba(207, 181, 59, 0.008) 50%, transparent 51%);
+            background-size: 
+                120px 120px,
+                180px 180px,
+                40px 40px,
+                80px 80px,
+                80px 80px;
+            background-position: 
+                0 0,
+                60px 60px,
+                0 0,
+                0 0,
+                0 0;
             pointer-events: none; /* Don't interfere with mouse interactions */
             z-index: 0; /* Behind all content */
+        }
+
+        /* ADDITIONAL SUBTLE PATTERN LAYER:
+           Adds organic flowing patterns for depth */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(ellipse at 20% 80%, rgba(207, 181, 59, 0.01) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 212, 170, 0.008) 0%, transparent 60%),
+                radial-gradient(ellipse at 60% 60%, rgba(207, 181, 59, 0.008) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* =================================================================
@@ -637,6 +660,7 @@
                         <p>Working on NMR spectroscopy and protein kinase regulation mechanisms.</p>
                         <!-- TODO: Update GitHub link -->
                         <a href="https://github.com/student2" class="github-link" target="_blank">🔗 GitHub Profile</a>
+                    </div>
 
                     <!-- GRADUATE STUDENT 3 -->
                     <!-- TODO: Update with actual student information -->
@@ -646,7 +670,7 @@
                         <div class="member-title">PhD Student</div>
                         <p>Working on NMR spectroscopy and protein kinase regulation mechanisms.</p>
                         <!-- TODO: Update GitHub link -->
-                        <a href="https://github.com/student2" class="github-link" target="_blank">🔗 GitHub Profile</a>
+                        <a href="https://github.com/student3" class="github-link" target="_blank">🔗 GitHub Profile</a>
                     </div>
                     
                     <!-- TO ADD MORE TEAM MEMBERS:
@@ -657,6 +681,111 @@
                          - GitHub link (optional)
                          - Replace placeholder photo with actual photo -->
                         
+                </div>
+                
+                <!-- PAST MEMBERS LINK -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" onclick="showSection('past-members')" style="
+                        display: inline-block;
+                        background: linear-gradient(135deg, #CFB53B 0%, #B8941F 100%);
+                        color: #000000;
+                        padding: 0.8rem 2rem;
+                        border-radius: 25px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        transition: all 0.3s;
+                        box-shadow: 0 4px 12px rgba(207, 181, 59, 0.3);
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(207, 181, 59, 0.4)'" 
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(207, 181, 59, 0.3)'">
+                        👥 View Past Members
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             PAST MEMBERS SECTION
+             Former lab members and alumni
+             =================================================================== -->
+        <section id="past-members" class="section">
+            <div class="container">
+                <h2 class="section-title">Past Members</h2>
+                
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    
+                    <!-- ALUMNI CATEGORIES -->
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="color: #CFB53B; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Former Postdocs</h3>
+                        <div class="research-areas">
+                            
+                            <!-- FORMER POSTDOC 1 -->
+                            <!-- TODO: Add actual former postdoc information -->
+                            <div class="research-card" style="border-color: #00d4aa;">
+                                <h3>Dr. [Former Postdoc Name]</h3>
+                                <p><strong>Years:</strong> 20XX-20XX<br>
+                                <strong>Current Position:</strong> [Current job title and institution]<br>
+                                <strong>Research Focus:</strong> [Brief description of their research while in lab]</p>
+                            </div>
+                            
+                            <!-- ADD MORE FORMER POSTDOCS HERE -->
+                            
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="color: #CFB53B; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Former Graduate Students</h3>
+                        <div class="research-areas">
+                            
+                            <!-- FORMER GRAD STUDENT 1 -->
+                            <!-- TODO: Add actual former graduate student information -->
+                            <div class="research-card" style="border-color: #6c5ce7;">
+                                <h3>Dr. [Former Student Name]</h3>
+                                <p><strong>PhD Graduated:</strong> 20XX<br>
+                                <strong>Thesis:</strong> "[Thesis title]"<br>
+                                <strong>Current Position:</strong> [Current job and location]</p>
+                            </div>
+                            
+                            <!-- ADD MORE FORMER GRADUATE STUDENTS HERE -->
+                            
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: #CFB53B; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Former Undergraduate Researchers</h3>
+                        <div class="research-areas">
+                            
+                            <!-- FORMER UNDERGRAD 1 -->
+                            <!-- TODO: Add actual former undergraduate information -->
+                            <div class="research-card" style="border-color: #fd79a8;">
+                                <h3>[Former Undergrad Name]</h3>
+                                <p><strong>Years:</strong> 20XX-20XX<br>
+                                <strong>Project:</strong> [Brief description of their project]<br>
+                                <strong>Current Status:</strong> [Graduate school, career, etc.]</p>
+                            </div>
+                            
+                            <!-- ADD MORE FORMER UNDERGRADS HERE -->
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- BACK TO CURRENT TEAM LINK -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" onclick="showSection('team')" style="
+                        display: inline-block;
+                        background: linear-gradient(135deg, #CFB53B 0%, #B8941F 100%);
+                        color: #000000;
+                        padding: 0.8rem 2rem;
+                        border-radius: 25px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        transition: all 0.3s;
+                        box-shadow: 0 4px 12px rgba(207, 181, 59, 0.3);
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(207, 181, 59, 0.4)'" 
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(207, 181, 59, 0.3)'">
+                        ← Back to Current Team
+                    </a>
                 </div>
             </div>
         </section>
@@ -742,6 +871,40 @@
                          - Publication title (in <strong> tags)
                          - Authors and journal information -->
                          
+                </div>
+                
+                <!-- FULL PUBLICATIONS LIST LINK -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank" style="
+                        display: inline-block;
+                        background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
+                        color: #ffffff;
+                        padding: 0.8rem 2rem;
+                        border-radius: 25px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        transition: all 0.3s;
+                        box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3);
+                        margin-right: 1rem;
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0, 212, 170, 0.4)'" 
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 212, 170, 0.3)'">
+                        📚 View All Publications
+                    </a>
+                    
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/?term=YOUR_SEARCH_TERMS" target="_blank" style="
+                        display: inline-block;
+                        background: linear-gradient(135deg, #6c5ce7 0%, #5a45d4 100%);
+                        color: #ffffff;
+                        padding: 0.8rem 2rem;
+                        border-radius: 25px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        transition: all 0.3s;
+                        box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(108, 92, 231, 0.4)'" 
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(108, 92, 231, 0.3)'">
+                        🔬 PubMed Publications
+                    </a>
                 </div>
             </div>
         </section>
