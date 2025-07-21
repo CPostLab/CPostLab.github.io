@@ -1,12 +1,4 @@
-.placeholder-img {
-            background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-style: italic;
-            border: 1px solid #333;
-        }<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,11 +11,31 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #e0e0e0;
             background: #121212;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .placeholder-img {
+            background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-style: italic;
+            border: 1px solid #333;
         }
 
         .container {
@@ -71,6 +83,10 @@
         .nav-links a:hover,
         .nav-links a.active {
             color: #00d4aa;
+        }
+
+        main {
+            flex: 1;
         }
 
         .hero {
@@ -235,6 +251,7 @@
             text-align: center;
             padding: 2rem 0;
             border-top: 1px solid #333;
+            margin-top: auto;
         }
 
         .contact-info {
@@ -547,18 +564,26 @@
         // Show/hide sections based on navigation
         function showSection(sectionName) {
             // Hide all sections
-            const sections = document.querySelectorAll('.section, .hero');
+            const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
                 section.style.display = 'none';
+                section.classList.remove('active');
             });
+            
+            const heroSection = document.querySelector('.hero');
             
             // Show the selected section
             if (sectionName === 'home') {
-                document.querySelector('.hero').style.display = 'block';
+                heroSection.style.display = 'block';
+                heroSection.classList.remove('hidden');
             } else {
+                heroSection.style.display = 'none';
+                heroSection.classList.add('hidden');
+                
                 const targetSection = document.getElementById(sectionName);
                 if (targetSection) {
                     targetSection.style.display = 'block';
+                    targetSection.classList.add('active');
                 }
             }
             
@@ -598,7 +623,15 @@
 
         // Initialize - show home page by default
         document.addEventListener('DOMContentLoaded', function() {
+            // Force hide all sections first
+            const allSections = document.querySelectorAll('.section');
+            allSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show only home
             showSection('home');
+            
             // Rotate news every 5 seconds
             setInterval(rotateNews, 5000);
         });
