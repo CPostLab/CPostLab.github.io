@@ -5,124 +5,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to the Post Lab Research Group</title>
     <style>
+        /* =================================================================
+           GLOBAL RESET AND BASE STYLES
+           ================================================================= */
+        
+        /* Remove default margins and padding from all elements */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; /* Include padding and border in element's total width/height */
         }
 
+        /* Ensure full height layout without horizontal scrollbars */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
+        /* =================================================================
+           MAIN BODY STYLING WITH SYK PROTEIN BACKGROUND
+           ================================================================= */
+        
         body {
+            /* Font stack for cross-platform compatibility */
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #e0e0e0;
-            background: #121212;
-            min-height: 100vh;
+            line-height: 1.6; /* Readable line spacing */
+            color: #e0e0e0; /* Light text on dark background */
+            background: #121212; /* Dark background base color */
+            min-height: 100vh; /* Minimum full viewport height */
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Stack header, main, footer vertically */
+            
+            /* SYK PROTEIN BACKGROUND IMPLEMENTATION:
+               Multiple radial gradients create a subtle protein-like pattern
+               Very low opacity (0.02-0.03) ensures readability */
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(207, 181, 59, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(207, 181, 59, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(207, 181, 59, 0.02) 0%, transparent 30%);
+            background-size: 400px 400px, 350px 350px, 200px 200px;
+            background-position: 0 0, 100% 100%, 50% 50%;
+            background-repeat: no-repeat;
+            position: relative;
         }
 
+        /* ADDITIONAL SYK PROTEIN STRUCTURE OVERLAY:
+           Creates an even more subtle protein domain representation using CSS pseudo-element */
+        body::before {
+            content: '';
+            position: fixed; /* Fixed positioning so it doesn't scroll */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Base64 encoded SVG representing simplified Syk kinase domains */
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIG9wYWNpdHk9IjAuMDEiPgo8IS0tIFN5ayBraW5hc2UgZG9tYWluIHJlcHJlc2VudGF0aW9uIC0tPgo8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjMwIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjEiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iMTUwIiByPSIzNSIgZmlsbD0iI0NGQjUzQiIgb3BhY2l0eT0iMC4wOCIvPgo8Y2lyY2xlIGN4PSIyMDAiIGN5PSIyNTAiIHI9IjQwIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjA2Ii8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjIwMCIgcj0iMjUiIGZpbGw9IiNDRkI1M0IiIG9wYWNpdHk9IjAuMDUiLz4KPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSIyOCIgZmlsbD0iI0NGQjUzQiIgb3BhY2l0eT0iMC4wNyIvPgo8Y2lyY2xlIGN4PSIxMjAiIGN5PSIzMDAiIHI9IjMyIiBmaWxsPSIjQ0ZCNTNCIiBvcGFjaXR5PSIwLjA0Ii8+CjwvZz4KPC9zdmc+');
+            background-size: 600px 600px;
+            background-position: center;
+            background-repeat: no-repeat;
+            pointer-events: none; /* Don't interfere with mouse interactions */
+            z-index: 0; /* Behind all content */
+        }
+
+        /* =================================================================
+           PLACEHOLDER IMAGE STYLING
+           Used for photos that haven't been replaced yet
+           ================================================================= */
+        
         .placeholder-img {
-            background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
+            background: linear-gradient(45deg, #2a2a2a, #1a1a1a); /* Diagonal gradient */
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
+            color: #666; /* Muted text color */
             font-style: italic;
             border: 1px solid #333;
+            position: relative;
         }
 
+        /* =================================================================
+           CONTAINER AND LAYOUT COMPONENTS
+           ================================================================= */
+        
+        /* Main content container - centers content and adds padding */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            max-width: 1200px; /* Maximum width for readability */
+            margin: 0 auto; /* Center horizontally */
+            padding: 0 20px; /* Side padding */
+            position: relative;
+            z-index: 1; /* Above background elements */
         }
 
+        /* =================================================================
+           HEADER AND NAVIGATION STYLING
+           ================================================================= */
+        
         header {
-            background: #1e1e1e;
-            border-bottom: 1px solid #333;
+            background: #1e1e1e; /* Slightly lighter than body */
+            border-bottom: 1px solid #333; /* Subtle border */
             padding: 1rem 0;
-            position: sticky;
+            position: sticky; /* Stays at top when scrolling */
             top: 0;
-            z-index: 100;
+            z-index: 100; /* High z-index to stay above all content */
         }
 
+        /* Navigation container - uses flexbox for layout */
         nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: space-between; /* Logo left, nav links right */
+            align-items: center; /* Vertically center items */
         }
 
+        /* Lab logo/title styling */
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #CFB53B;
+            color: #CFB53B; /* Gold color - lab's accent color */
             text-decoration: none;
         }
 
+        /* Navigation links container */
         .nav-links {
             display: flex;
-            list-style: none;
-            gap: 2rem;
+            list-style: none; /* Remove bullet points */
+            gap: 2rem; /* Space between nav items */
         }
 
+        /* Individual navigation link styling */
         .nav-links a {
             text-decoration: none;
-            color: #b0b0b0;
+            color: #b0b0b0; /* Muted gray */
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s; /* Smooth color change on hover */
             cursor: pointer;
         }
 
+        /* Active and hover states for navigation links */
         .nav-links a:hover,
         .nav-links a.active {
-            color: #00d4aa;
+            color: #00d4aa; /* Teal highlight color */
         }
 
+        /* =================================================================
+           MAIN CONTENT AREA
+           ================================================================= */
+        
         main {
-            flex: 1;
+            flex: 1; /* Take up remaining space between header and footer */
+            position: relative;
+            z-index: 1; /* Above background */
         }
 
+        /* =================================================================
+           HOME/HERO SECTION STYLING
+           ================================================================= */
+        
         .hero {
-            padding: 3rem 0;
-            text-align: center;
-            display: block;
+            padding: 3rem 0; /* Top and bottom padding */
+            text-align: center; /* Center all content */
+            display: block; /* Initially visible */
         }
 
         .hero.active {
-            display: block;
+            display: block; /* When actively selected */
         }
 
+        /* Main heading on home page */
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #ffffff;
+            color: #ffffff; /* Pure white for emphasis */
         }
 
+        /* Group photo styling */
         .group-photo {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 2rem 0;
+            max-width: 100%; /* Responsive width */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle shadow */
+            margin: 2rem 0; /* Top and bottom margin */
         }
 
+        /* Research description text block */
         .research-description {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #b0b0b0;
+            max-width: 800px; /* Limit width for readability */
+            margin: 0 auto; /* Center horizontally */
+            font-size: 1.1rem; /* Slightly larger than default */
+            line-height: 1.8; /* Extra line spacing for readability */
+            color: #b0b0b0; /* Muted light gray */
         }
 
+        /* Research questions/points list */
         .research-questions {
-            list-style: none;
+            list-style: none; /* Remove default bullets */
             margin: 1.5rem 0;
             text-align: left;
             max-width: 800px;
@@ -131,79 +208,103 @@
 
         .research-questions li {
             margin: 1rem 0;
-            padding-left: 2rem;
+            padding-left: 2rem; /* Space for custom bullet */
             position: relative;
             text-align: left;
         }
 
+        /* Custom arrow bullet for research questions */
         .research-questions li::before {
-            content: "▶";
-            color: #CFB53B;
+            content: "▶"; /* Arrow character */
+            color: #CFB53B; /* Gold color */
             font-size: 1rem;
             position: absolute;
             left: 0;
             top: 0;
         }
 
+        /* =================================================================
+           SECTION STYLING (Team, Research, Publications, etc.)
+           ================================================================= */
+        
         .section {
-            padding: 4rem 0;
-            display: none;
+            padding: 4rem 0; /* Generous top/bottom padding */
+            display: none; /* Hidden by default */
+            position: relative;
+            z-index: 1; /* Above background */
         }
 
         .section.active {
-            display: block;
+            display: block; /* Show when selected */
         }
 
+        /* Section headings */
         .section-title {
             font-size: 2rem;
             margin-bottom: 2rem;
-            color: #ffffff;
+            color: #ffffff; /* White for emphasis */
             text-align: center;
         }
 
+        /* =================================================================
+           TEAM SECTION STYLING
+           ================================================================= */
+        
+        /* Grid layout for team members */
         .team-grid {
             display: grid;
+            /* Responsive grid: minimum 280px per column, auto-fit */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 2rem; /* Space between grid items */
             margin-top: 2rem;
         }
 
+        /* Individual team member card */
         .team-member {
-            background: #1e1e1e;
+            background: #1e1e1e; /* Dark card background */
             padding: 1.5rem;
-            border-radius: 8px;
+            border-radius: 8px; /* Rounded corners */
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effects */
+            border: 1px solid #333; /* Subtle border */
         }
 
+        /* Hover effect for team member cards */
         .team-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(207, 181, 59, 0.2);
+            transform: translateY(-5px); /* Lift up slightly */
+            box-shadow: 0 8px 20px rgba(207, 181, 59, 0.2); /* Gold shadow */
         }
 
+        /* Team member photo styling */
         .member-photo {
             width: 150px;
             height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+            border-radius: 50%; /* Circular photos */
+            object-fit: cover; /* Crop to fit circle */
             margin-bottom: 1rem;
-            border: 4px solid #fff;
+            border: 4px solid #fff; /* White border around photo */
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
+        /* Team member name styling */
         .member-name {
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
-            color: #ffffff;
+            color: #ffffff; /* White text */
         }
 
+        /* Team member title/position styling */
         .member-title {
-            color: #CFB53B;
+            color: #CFB53B; /* Gold accent color */
             margin-bottom: 1rem;
         }
 
+        /* =================================================================
+           RESEARCH SECTION STYLING
+           ================================================================= */
+        
+        /* Grid layout for research areas */
         .research-areas {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -211,49 +312,70 @@
             margin-top: 2rem;
         }
 
+        /* Individual research area card */
         .research-card {
+            /* Gradient background from light to dark */
             background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 50%, #000000 100%);
             color: white;
             padding: 2rem;
-            border-radius: 12px;
-            transition: transform 0.3s;
-            border: 2px solid #CFB53B;
+            border-radius: 12px; /* More rounded than team cards */
+            transition: transform 0.3s; /* Smooth hover animation */
+            border: 2px solid #CFB53B; /* Gold border */
         }
 
+        /* Hover effect for research cards */
         .research-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px); /* Lift effect */
         }
 
+        /* Research card headings */
         .research-card h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
         }
 
+        /* =================================================================
+           NEWS AND PUBLICATIONS STYLING
+           ================================================================= */
+        
+        /* Individual news/publication item */
         .news-item {
-            border-left: 4px solid #CFB53B;
+            border-left: 4px solid #CFB53B; /* Gold left border */
             padding: 1rem 1.5rem;
             margin: 1rem 0;
-            background: #1e1e1e;
-            border-radius: 0 8px 8px 0;
+            background: #1e1e1e; /* Dark background */
+            border-radius: 0 8px 8px 0; /* Rounded on right side only */
             border: 1px solid #333;
-            border-left: 4px solid #CFB53B;
+            border-left: 4px solid #CFB53B; /* Ensure left border is prominent */
         }
 
+        /* Date styling in news items */
         .news-date {
             font-size: 0.9rem;
-            color: #CFB53B;
+            color: #CFB53B; /* Gold color */
             font-weight: bold;
         }
 
+        /* =================================================================
+           FOOTER STYLING
+           ================================================================= */
+        
         footer {
-            background: #0a0a0a;
-            color: #b0b0b0;
+            background: #0a0a0a; /* Very dark background */
+            color: #b0b0b0; /* Muted text */
             text-align: center;
             padding: 2rem 0;
-            border-top: 1px solid #333;
-            margin-top: auto;
+            border-top: 1px solid #333; /* Subtle top border */
+            margin-top: auto; /* Push to bottom of flex container */
+            position: relative;
+            z-index: 1; /* Above background */
         }
 
+        /* =================================================================
+           CONTACT SECTION STYLING
+           ================================================================= */
+        
+        /* Grid layout for contact information */
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -261,6 +383,7 @@
             margin-top: 2rem;
         }
 
+        /* Individual contact card */
         .contact-card {
             background: #1e1e1e;
             padding: 1.5rem;
@@ -269,34 +392,47 @@
             border: 1px solid #333;
         }
 
+        /* =================================================================
+           RESPONSIVE DESIGN - MOBILE STYLING
+           ================================================================= */
+        
         @media (max-width: 768px) {
+            /* Stack navigation links vertically on mobile */
             .nav-links {
                 flex-direction: column;
                 gap: 1rem;
             }
             
+            /* Smaller heading on mobile */
             .hero h1 {
                 font-size: 2rem;
             }
             
+            /* Adjust text size and add padding on mobile */
             .research-description {
                 font-size: 1rem;
                 padding: 0 1rem;
             }
         }
 
+        /* =================================================================
+           NEWS BANNER STYLING
+           ================================================================= */
+        
+        /* Prominent news banner with gradient background */
         .news-banner {
             background: linear-gradient(135deg, #CFB53B 0%, #B8941F 100%);
-            color: #000000;
+            color: #000000; /* Dark text on light background */
             padding: 1rem;
             margin: 2rem auto;
             max-width: 800px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(207, 181, 59, 0.3);
-            animation: slideIn 0.5s ease-out;
+            box-shadow: 0 4px 15px rgba(207, 181, 59, 0.3); /* Golden shadow */
+            animation: slideIn 0.5s ease-out; /* Slide in animation */
             position: relative;
         }
 
+        /* News banner content layout */
         .news-content {
             display: flex;
             align-items: center;
@@ -305,15 +441,18 @@
             font-weight: 500;
         }
 
+        /* Icon in news banner */
         .news-icon {
             font-size: 1.2rem;
         }
 
+        /* Main text in news banner */
         .news-text {
-            flex: 1;
+            flex: 1; /* Take up remaining space */
             text-align: center;
         }
 
+        /* Close button for news banner */
         .news-close {
             background: none;
             border: none;
@@ -330,10 +469,12 @@
             transition: background-color 0.3s;
         }
 
+        /* Hover effect for close button */
         .news-close:hover {
             background-color: rgba(0, 0, 0, 0.1);
         }
 
+        /* Slide-in animation for news banner */
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -345,30 +486,43 @@
             }
         }
 
+        /* =================================================================
+           GITHUB LINK STYLING
+           ================================================================= */
+        
+        /* GitHub profile links for team members */
         .github-link {
             display: inline-block;
             background: #000000;
-            color: #CFB53B;
+            color: #CFB53B; /* Gold text */
             padding: 0.3rem 0.8rem;
-            border-radius: 15px;
+            border-radius: 15px; /* Pill shape */
             text-decoration: none;
             font-size: 0.9rem;
             margin-top: 0.5rem;
-            transition: all 0.3s;
-            border: 1px solid #CFB53B;
+            transition: all 0.3s; /* Smooth transitions */
+            border: 1px solid #CFB53B; /* Gold border */
         }
 
+        /* Hover effect for GitHub links */
         .github-link:hover {
-            background: #CFB53B;
-            color: #000000;
-            transform: translateY(-2px);
+            background: #CFB53B; /* Gold background */
+            color: #000000; /* Black text */
+            transform: translateY(-2px); /* Slight lift */
         }
     </style>
 </head>
 <body>
+    <!-- ===================================================================
+         HEADER SECTION
+         Contains the navigation bar with logo and menu items
+         =================================================================== -->
     <header>
         <nav class="container">
+            <!-- Lab logo/name - clicking returns to home -->
             <a href="#" class="logo" onclick="showSection('home')">Post Lab</a>
+            
+            <!-- Main navigation menu -->
             <ul class="nav-links">
                 <li><a href="#" onclick="showSection('home')" class="nav-link active" data-section="home">Home</a></li>
                 <li><a href="#" onclick="showSection('team')" class="nav-link" data-section="team">Team</a></li>
@@ -380,28 +534,40 @@
         </nav>
     </header>
 
+    <!-- ===================================================================
+         MAIN CONTENT AREA
+         Contains all page sections (home, team, research, etc.)
+         =================================================================== -->
     <main>
+        <!-- HOME/HERO SECTION -->
         <section id="home" class="hero">
             <div class="container">
+                <!-- Main page heading -->
                 <h1>Welcome to the Post Lab Research Group!</h1>
                 
+                <!-- GROUP PHOTO PLACEHOLDER
+                     TODO: Replace with actual lab group photo
+                     Recommended size: 800x400px for best display -->
                 <div class="group-photo placeholder-img" style="height: 400px; max-width: 800px; margin: 2rem auto;">
                     Group Photo Placeholder<br>
                     <small>Replace with your actual group photo</small>
                 </div>
 
+                <!-- RESEARCH DESCRIPTION
+                     Main description of lab's research focus and methods -->
                 <div class="research-description">
                     <p>Welcome to the official GitHub organization of <strong>Post Lab</strong>, based at <strong>Purdue University</strong>.</p>
                     
+                    <!-- TODO: Update this paragraph with current research focus -->
                     <p>We investigate the <strong>internal dynamics, energetics, and intermolecular interactions of proteins</strong> to better understand and manipulate their biological functions. Our research combines <strong>solution NMR spectroscopy</strong> and <strong>molecular dynamics simulations</strong> to probe protein systems at both macroscopic and microscopic levels.</p>
-                        </ul>
-                    </div>
                 </div>
 
-                <!-- News Banner -->
+                <!-- NEWS BANNER
+                     Rotating banner for important announcements -->
                 <div class="news-banner" id="newsBanner">
                     <div class="news-content">
                         <span class="news-icon">📢</span>
+                        <!-- This text rotates - see JavaScript section for customization -->
                         <span class="news-text">Check out our latest publication on protein dynamics!</span>
                         <button class="news-close" onclick="hideNewsBanner()">&times;</button>
                     </div>
@@ -409,260 +575,154 @@
             </div>
         </section>
 
+        <!-- ===================================================================
+             TEAM SECTION
+             Displays lab members with photos, names, titles, and descriptions
+             =================================================================== -->
         <section id="team" class="section">
             <div class="container">
-                <h2 class="section-title"> People </h2>
+                <h2 class="section-title">People</h2>
+                
+                <!-- Team member grid container -->
                 <div class="team-grid">
                     
+                    <!-- PRINCIPAL INVESTIGATOR -->
                     <div class="team-member">
+                        <!-- TODO: Replace placeholder with actual photo -->
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
                         <div class="member-name">Dr. Carol Beth Post</div>
                         <div class="member-title">Principal Investigator</div>
                         <p>Ph.D. Department of Medicinal Chemistry and Molecular Pharmacology, Purdue University. Research focus on protein dynamics and NMR spectroscopy.</p>
                     </div>
 
+                    <!-- POSTDOC 1 -->
+                    <!-- TODO: Update with actual postdoc information -->
                     <div class="team-member">
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
                         <div class="member-name">Postdoc Researcher</div>
                         <div class="member-title">Postdoctoral Fellow</div>
                         <p>Analysis of protein equilibrium systems.</p>
+                        <!-- TODO: Update GitHub link -->
                         <a href="https://github.com/postdoc1" class="github-link" target="_blank">🔗 GitHub Profile</a>
                     </div>
                     
+                    <!-- POSTDOC 2 -->
+                    <!-- TODO: Update with actual postdoc information -->
                      <div class="team-member">
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
                         <div class="member-name">Postdoc Researcher</div>
                         <div class="member-title">Postdoctoral Fellow</div>
                         <p>Specializing in thermodynamic analysis of protein systems.</p>
+                        <!-- TODO: Update GitHub link -->
                         <a href="https://github.com/postdoc1" class="github-link" target="_blank">🔗 GitHub Profile</a>
                     </div>
                     
+                    <!-- GRADUATE STUDENT 1 -->
+                    <!-- TODO: Update with actual student information -->
                     <div class="team-member">
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
-                        <div class="member-name">Graduate Student 2</div>
+                        <div class="member-name">Graduate Student 1</div>
                         <div class="member-title">PhD Student</div>
                         <p>Research focus on molecular dynamics simulations and protein-protein interactions.</p>
+                        <!-- TODO: Update GitHub link -->
                         <a href="https://github.com/student1" class="github-link" target="_blank">🔗 GitHub Profile</a>
                     </div>
                     
+                    <!-- GRADUATE STUDENT 2 -->
+                    <!-- TODO: Update with actual student information -->
                     <div class="team-member">
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
                         <div class="member-name">Graduate Student 2</div>
                         <div class="member-title">PhD Student</div>
                         <p>Working on NMR spectroscopy and protein kinase regulation mechanisms.</p>
+                        <!-- TODO: Update GitHub link -->
                         <a href="https://github.com/student2" class="github-link" target="_blank">🔗 GitHub Profile</a>
 
+                    <!-- GRADUATE STUDENT 3 -->
+                    <!-- TODO: Update with actual student information -->
                     <div class="team-member">
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
-                        <div class="member-name">Graduate Student 2</div>
+                        <div class="member-name">Graduate Student 3</div>
                         <div class="member-title">PhD Student</div>
                         <p>Working on NMR spectroscopy and protein kinase regulation mechanisms.</p>
+                        <!-- TODO: Update GitHub link -->
                         <a href="https://github.com/student2" class="github-link" target="_blank">🔗 GitHub Profile</a>
                     </div>
+                    
+                    <!-- TO ADD MORE TEAM MEMBERS:
+                         Copy one of the above .team-member divs and update:
+                         - member-name
+                         - member-title  
+                         - Description paragraph
+                         - GitHub link (optional)
+                         - Replace placeholder photo with actual photo -->
                         
                 </div>
             </div>
         </section>
 
+        <!-- ===================================================================
+             RESEARCH SECTION
+             Displays main research areas and focus
+             =================================================================== -->
         <section id="research" class="section">
             <div class="container">
                 <h2 class="section-title">Research Areas</h2>
+                
+                <!-- Research areas grid -->
                 <div class="research-areas">
+                    
+                    <!-- RESEARCH AREA 1: Protein Tyrosine Kinase Regulation -->
+                    <!-- TODO: Update content to reflect current research -->
                     <div class="research-card">
                         <h3>Protein Tyrosine Kinase Regulation</h3>
                         <p>Investigating the regulation of protein tyrosine kinase activity in signal transduction pathways using NMR spectroscopy and molecular dynamics simulations.</p>
                     </div>
+                    
+                    <!-- RESEARCH AREA 2: Protein Thermodynamics -->
+                    <!-- TODO: Update content to reflect current research -->
                     <div class="research-card">
                         <h3>Protein Thermodynamics</h3>
                         <p>Estimating thermodynamic properties of protein systems to understand stability, folding mechanisms, and intermolecular interactions.</p>
                     </div>
+                    
+                    <!-- RESEARCH AREA 3: Prion Dynamics -->
+                    <!-- TODO: Update content to reflect current research -->
                     <div class="research-card">
                         <h3>Prion Dynamics</h3>
                         <p>Exploring the mechanisms of prion dynamics and misfolding processes that lead to neurodegenerative diseases using computational approaches.</p>
                     </div>
+                    
+                    <!-- TO ADD MORE RESEARCH AREAS:
+                         Copy one of the above .research-card divs and update:
+                         - h3 title
+                         - Description paragraph -->
+                         
                 </div>
             </div>
         </section>
 
+        <!-- ===================================================================
+             PUBLICATIONS SECTION
+             Lists recent lab publications
+             =================================================================== -->
         <section id="publications" class="section" style="background: #1a1a1a;">
             <div class="container">
                 <h2 class="section-title">Recent Publications</h2>
+                
                 <div style="max-width: 800px; margin: 0 auto;">
+                    
+                    <!-- PUBLICATION 1 -->
+                    <!-- TODO: Replace with actual publication information -->
                     <div class="news-item">
                         <div class="news-date">2024</div>
                         <p><strong>Title of Recent Paper</strong><br>
                         Authors. <em>Journal Name</em>, vol, pages (2024).</p>
                     </div>
+                    
+                    <!-- PUBLICATION 2 -->
+                    <!-- TODO: Replace with actual publication information -->
                     <div class="news-item">
                         <div class="news-date">2024</div>
                         <p><strong>Another Important Publication</strong><br>
                         Authors. <em>Journal Name</em>, vol, pages (2024).</p>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2023</div>
-                        <p><strong>Previous Year's Work</strong><br>
-                        Authors. <em>Journal Name</em>, vol, pages (2023).</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="news" class="section">
-            <div class="container">
-                <h2 class="section-title">Lab News</h2>
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <div class="news-item">
-                        <div class="news-date">July 2025</div>
-                        <p>Welcome to our new graduate student! [Name] joins the lab to work on [project area].</p>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">June 2025</div>
-                        <p>Congratulations to [Student Name] for their paper acceptance in [Journal Name]!</p>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">May 2025</div>
-                        <p>Our lab presented [number] posters at the [Conference Name] conference.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section" style="background: #1a1a1a;">
-            <div class="container">
-                <h2 class="section-title">Contact Us</h2>
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <h3>Lab Location</h3>
-                        <p>Department of Medicinal Chemistry<br>
-                        and Molecular Pharmacology<br>
-                        Purdue University<br>
-                        West Lafayette, IN 47907</p>
-                    </div>
-                    <div class="contact-card">
-                        <h3>Principal Investigator</h3>
-                        <p><strong>Dr. Carol Beth Post</strong><br>
-                        Email: cbp@purdue.edu<br>
-                        Phone: (765) 494-1393<br>
-                        Office: RHPH Building</p>
-                    </div>
-                    <div class="contact-card">
-                        <h3>Prospective Students</h3>
-                        <p>Interested in joining our group?<br>
-                        Please email Dr. Post with your CV and research interests in protein dynamics, NMR, or computational biology.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Post Lab Research Group. All rights reserved.</p>
-            <p>Purdue University | Department of Medicinal Chemistry and Molecular Pharmacology</p>
-        </div>
-    </footer>
-
-    <script>
-        // Show/hide sections based on navigation
-        function showSection(sectionName) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.style.display = 'none';
-                section.classList.remove('active');
-            });
-            
-            const heroSection = document.querySelector('.hero');
-            
-            // Show the selected section
-            if (sectionName === 'home') {
-                heroSection.style.display = 'block';
-                heroSection.classList.remove('hidden');
-            } else {
-                heroSection.style.display = 'none';
-                heroSection.classList.add('hidden');
-                
-                const targetSection = document.getElementById(sectionName);
-                if (targetSection) {
-                    targetSection.style.display = 'block';
-                    targetSection.classList.add('active');
-                }
-            }
-            
-            // Update active nav link
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            const activeLink = document.querySelector(`[data-section="${sectionName}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-        }
-
-        // Hide news banner
-        function hideNewsBanner() {
-            const banner = document.getElementById('newsBanner');
-            banner.style.display = 'none';
-        }
-
-        // Rotating news messages
-        const newsMessages = [
-            "Check out our latest publication on protein dynamics!",
-            "New MD simulation tools now available on GitHub!",
-            "Join us at the upcoming Biophysical Society meeting!"
-        ];
-
-        function rotateNews() {
-            const newsText = document.querySelector('.news-text');
-            if (newsText) {
-                const randomMessage = newsMessages[Math.floor(Math.random() * newsMessages.length)];
-                newsText.textContent = randomMessage;
-            }
-        }
-
-        // Initialize - show home page by default
-        document.addEventListener('DOMContentLoaded', function() {
-            // Force hide all sections first
-            const allSections = document.querySelectorAll('.section');
-            allSections.forEach(section => {
-                section.style.display = 'none';
-            });
-            
-            // Show only home
-            showSection('home');
-            
-            // Rotate news every 5 seconds
-            setInterval(rotateNews, 5000);
-        });
-
-        // Simple mobile menu toggle
-        const navLinks = document.querySelector('.nav-links');
-        const burger = document.createElement('div');
-        burger.innerHTML = '☰';
-        burger.style.cssText = 'display: none; font-size: 1.5rem; cursor: pointer; color: #CFB53B;';
-        
-        // Add responsive behavior
-        function checkScreen() {
-            if (window.innerWidth <= 768) {
-                burger.style.display = 'block';
-                if (!document.querySelector('.burger')) {
-                    burger.className = 'burger';
-                    document.querySelector('nav').appendChild(burger);
-                    
-                    burger.addEventListener('click', function() {
-                        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                    });
-                }
-            } else {
-                burger.style.display = 'none';
-                navLinks.style.display = 'flex';
-            }
-        }
-        
-        window.addEventListener('resize', checkScreen);
-        checkScreen();
-    </script>
-</body>
-</html>
