@@ -309,6 +309,144 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
+        /* ACTUAL IMAGE STYLING (when replacing placeholders) */
+        img.member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover; /* Ensures photos fit nicely in circle */
+            margin: 0 auto 1rem auto;
+            display: block; /* Centers the image */
+        }
+
+        img.group-photo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            display: block; /* Centers the image */
+        }
+
+        /* PHOTO CAROUSEL STYLING */
+        .photo-carousel {
+            position: relative;
+            max-width: 800px;
+            height: 400px;
+            margin: 2rem auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: #1e1e1e; /* Fallback background */
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Smooth fade transition */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        /* Fallback for when images are still placeholders */
+        .carousel-slide.placeholder {
+            background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-style: italic;
+            border: 1px solid #333;
+            font-size: 1.1rem;
+        }
+
+        /* CAROUSEL NAVIGATION DOTS */
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .carousel-dot.active {
+            background: #CFB53B;
+            border-color: #CFB53B;
+            transform: scale(1.2);
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* CAROUSEL CONTROLS (optional - can be hidden if you want auto-only) */
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            z-index: 10;
+            opacity: 0; /* Hidden by default */
+        }
+
+        .photo-carousel:hover .carousel-controls {
+            opacity: 1; /* Show on hover */
+        }
+
+        .carousel-prev {
+            left: 15px;
+        }
+
+        .carousel-next {
+            right: 15px;
+        }
+
+        .carousel-controls:hover {
+            background: rgba(207, 181, 59, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* RESPONSIVE IMAGE HANDLING */
+        img {
+            max-width: 100%;
+            height: auto; /* Maintains aspect ratio */
+        }
+
         /* Team member name styling */
         .member-name {
             font-size: 1.2rem;
@@ -568,12 +706,47 @@
                 <!-- Main page heading -->
                 <h1>Welcome to the Post Lab Research Group!</h1>
                 
-                <!-- GROUP PHOTO PLACEHOLDER
-                     TODO: Replace with actual lab group photo
-                     Recommended size: 800x400px for best display -->
-                <div class="group-photo placeholder-img" style="height: 400px; max-width: 800px; margin: 2rem auto;">
-                    Group Photo Placeholder<br>
-                    <small>Replace with your actual group photo</small>
+                <!-- GROUP PHOTO CAROUSEL
+                     TODO: Replace placeholder images with actual lab group photos
+                     Add your photos to images/group/ directory -->
+                <div class="photo-carousel" id="groupPhotoCarousel">
+                    <div class="carousel-container">
+                        <!-- SLIDE 1 - TODO: Replace with actual group photo -->
+                        <div class="carousel-slide active placeholder" data-image="images/group/group-photo-1.jpg">
+                            Group Photo 1 - Lab Meeting<br>
+                            <small>Replace with: images/group/group-photo-1.jpg</small>
+                        </div>
+                        
+                        <!-- SLIDE 2 - TODO: Replace with actual group photo -->
+                        <div class="carousel-slide placeholder" data-image="images/group/group-photo-2.jpg">
+                            Group Photo 2 - Conference<br>
+                            <small>Replace with: images/group/group-photo-2.jpg</small>
+                        </div>
+                        
+                        <!-- SLIDE 3 - TODO: Replace with actual group photo -->
+                        <div class="carousel-slide placeholder" data-image="images/group/group-photo-3.jpg">
+                            Group Photo 3 - Lab Celebration<br>
+                            <small>Replace with: images/group/group-photo-3.jpg</small>
+                        </div>
+                        
+                        <!-- TO ADD MORE PHOTOS:
+                             Copy one of the above carousel-slide divs and:
+                             1. Remove "active" class
+                             2. Update data-image path
+                             3. Update placeholder text -->
+                    </div>
+                    
+                    <!-- Navigation dots -->
+                    <div class="carousel-dots">
+                        <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide(2)"></div>
+                        <!-- Add more dots if you add more photos -->
+                    </div>
+                    
+                    <!-- Previous/Next buttons (hidden by default, show on hover) -->
+                    <button class="carousel-controls carousel-prev" onclick="previousSlide()">&#8249;</button>
+                    <button class="carousel-controls carousel-next" onclick="nextSlide()">&#8250;</button>
                 </div>
 
                 <!-- RESEARCH DESCRIPTION
@@ -1068,9 +1241,126 @@
         }
 
         /* ===================================================================
-           NEWS BANNER FUNCTIONS
-           Controls the rotating news banner functionality
+           PHOTO CAROUSEL FUNCTIONS
+           Controls the rotating group photo slideshow
            =================================================================== */
+        
+        let currentSlide = 0;
+        let slideInterval;
+        const slides = [];
+        const dots = [];
+
+        /**
+         * Initialize the photo carousel
+         */
+        function initializeCarousel() {
+            const carousel = document.getElementById('groupPhotoCarousel');
+            if (!carousel) return;
+
+            // Get all slides and dots
+            const slideElements = carousel.querySelectorAll('.carousel-slide');
+            const dotElements = carousel.querySelectorAll('.carousel-dot');
+            
+            // Convert to arrays for easier handling
+            slideElements.forEach(slide => slides.push(slide));
+            dotElements.forEach(dot => dots.push(dot));
+
+            // Load actual images if they exist, otherwise keep placeholders
+            slides.forEach((slide, index) => {
+                const imagePath = slide.getAttribute('data-image');
+                if (imagePath) {
+                    // Try to load the image
+                    const img = new Image();
+                    img.onload = function() {
+                        // Image loaded successfully - replace placeholder
+                        slide.style.backgroundImage = `url(${imagePath})`;
+                        slide.classList.remove('placeholder');
+                        slide.innerHTML = ''; // Remove placeholder text
+                    };
+                    img.onerror = function() {
+                        // Image failed to load - keep placeholder
+                        console.log(`Image not found: ${imagePath}`);
+                    };
+                    img.src = imagePath;
+                }
+            });
+
+            // Start automatic slideshow
+            startSlideshow();
+        }
+
+        /**
+         * Go to a specific slide
+         * @param {number} slideIndex - Index of the slide to show
+         */
+        function goToSlide(slideIndex) {
+            if (slideIndex < 0 || slideIndex >= slides.length) return;
+
+            // Remove active class from current slide and dot
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+
+            // Set new current slide
+            currentSlide = slideIndex;
+
+            // Add active class to new slide and dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+
+            // Reset the slideshow timer
+            resetSlideshow();
+        }
+
+        /**
+         * Go to next slide
+         */
+        function nextSlide() {
+            const nextIndex = (currentSlide + 1) % slides.length;
+            goToSlide(nextIndex);
+        }
+
+        /**
+         * Go to previous slide
+         */
+        function previousSlide() {
+            const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(prevIndex);
+        }
+
+        /**
+         * Start automatic slideshow
+         */
+        function startSlideshow() {
+            slideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+        }
+
+        /**
+         * Stop automatic slideshow
+         */
+        function stopSlideshow() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+            }
+        }
+
+        /**
+         * Reset slideshow timer (useful when user manually navigates)
+         */
+        function resetSlideshow() {
+            stopSlideshow();
+            startSlideshow();
+        }
+
+        /**
+         * Pause slideshow on hover, resume on mouse leave
+         */
+        function initializeCarouselHover() {
+            const carousel = document.getElementById('groupPhotoCarousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', stopSlideshow);
+                carousel.addEventListener('mouseleave', startSlideshow);
+            }
+        }
         
         /**
          * Hides the news banner when close button is clicked
@@ -1165,6 +1455,10 @@
             
             // Show home page by default
             showSection('home');
+            
+            // Initialize photo carousel
+            initializeCarousel();
+            initializeCarouselHover();
             
             // Initialize mobile navigation
             initializeMobileNav();
