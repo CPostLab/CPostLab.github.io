@@ -41,7 +41,7 @@ post-lab-website/
 
 ## 🎯 Who Edits What
 
-### 🏠 **index.html** - Dr. Post or website manager
+### 🏠 **index.html** - Carol or website manager
 - Research description
 - Group photos
 - News banner messages
