@@ -1,211 +1,324 @@
 # CPostLab.github.io
 
-# Post Lab Website Management Guide
+# Post Lab Website - Complete Setup Guide
 
-## 📁 File Structure
+## 🚀 Quick Start
+
+Your website is now broken into separate, manageable files. Each lab member can edit specific pages without affecting others!
+
+### 📁 Complete File Structure
 
 ```
 post-lab-website/
-├── README.md                 # This file - instructions for updating the site
-├── styles.css               # Shared styling (colors, fonts, layout)
-├── index.html               # Home page with carousel and research description
-├── team.html                # Team members and their information
-├── research.html            # Research areas and methods
-├── publications.html        # Recent publications and metrics
-├── news.html                # Lab news and announcements
-├── contact.html             # Contact information and directions
-└── images/                  # Directory for photos and images
-    ├── group/               # Group photos for carousel
+├── 📄 index.html               # Home page (carousel, research description)
+├── 👥 team.html                # Current team members
+├── 👨‍🎓 past-members.html         # Alumni and former members
+├── 🔬 research.html            # Research areas and methods
+├── 📚 publications.html        # Papers and publication metrics
+├── 📰 news.html                # Lab news and announcements
+├── 📞 contact.html             # Contact info and directions
+├── 📝 template.html            # Template for creating new pages
+├── 🎨 styles.css               # All visual styling (colors, fonts, layout)
+├── ⚡ shared.js                # Common JavaScript functions (optional)
+├── 📋 README.md               # Basic editing instructions
+├── 📖 SETUP_GUIDE.md          # This file - complete setup guide
+└── 📂 images/                 # All photos and images
+    ├── 📂 group/              # Group photos for homepage carousel
     │   ├── group-photo-1.jpg
     │   ├── group-photo-2.jpg
-    │   └── profile.jpg
-    ├── team/                # Individual member photos
+    │   ├── group-photo-3.jpg
+    │   └── profile.jpg        # Rajarshi's photo
+    ├── 📂 team/               # Individual member photos
     │   ├── dr-post.jpg
     │   ├── postdoc1.jpg
-    │   └── student1.jpg
-    └── research/            # Research-related images
+    │   ├── student1.jpg
+    │   └── ...
+    └── 📂 research/           # Research-related images
         ├── kinase-regulation.jpg
-        └── thermodynamics.jpg
+        ├── thermodynamics.jpg
+        └── ...
 ```
 
-## 🎯 How to Update Different Sections
+## 🎯 Who Edits What
 
-### 🏠 **Home Page (index.html)**
-**Who should edit:** Dr. Post or designated lab manager  
-**What to update:**
-- Research description text
-- Group photos in the carousel
+### 🏠 **index.html** - Dr. Post or Lab Manager
+- Research description
+- Group photos
 - News banner messages
 
-### 👥 **Team Page (team.html)**
-**Who should edit:** Individual team members can edit their own sections  
-**What to update:**
-- Add/remove team members
-- Update names, titles, descriptions
-- Replace placeholder photos
-- Update GitHub/profile links
+### 👥 **team.html** - Individual Members
+- **Each person edits their own section**
+- Add/remove members as people join/leave
+- Update photos, descriptions, GitHub links
 
-### 🔬 **Research Page (research.html)**
-**Who should edit:** Dr. Post or senior researchers  
-**What to update:**
+### 🔬 **research.html** - Dr. Post or Senior Researchers  
 - Research area descriptions
-- Current projects
-- Research methods
-- Add new research areas
+- Current projects and methods
+- Add new research directions
 
-### 📚 **Publications Page (publications.html)**
-**Who should edit:** Any lab member can add new publications  
-**What to update:**
-- Add new publications (keep newest first)
-- Update metrics (total publications, citations, h-index)
-- Update external links
+### 📚 **publications.html** - Anyone Can Add
+- **Most frequently updated page**
+- Add new papers as they're published
+- Update metrics (citations, h-index)
 
-### 📰 **News Page (news.html)**
-**Who should edit:** Any lab member can add news  
-**What to update:**
-- Add new news items (keep newest first)
-- Update upcoming events
-- Remove outdated news
+### 📰 **news.html** - Anyone Can Add
+- Lab announcements
+- Student achievements
+- Conference presentations
+- Equipment updates
 
-### 📞 **Contact Page (contact.html)**
-**Who should edit:** Dr. Post or lab manager  
-**What to update:**
+### 📞 **contact.html** - Dr. Post or Lab Manager
 - Contact information
 - Office locations
-- Application instructions
+- Application procedures
 
-## ✏️ Quick Editing Guide
+## ✏️ Detailed Editing Instructions
 
 ### Adding a New Team Member
 
-1. Open `team.html`
-2. Find the "TO ADD MORE TEAM MEMBERS" comment
-3. Copy the template and fill in:
+1. **Open `team.html`** in any text editor
+2. **Find the template** (search for "TO ADD MORE TEAM MEMBERS")
+3. **Copy this template:**
    ```html
    <div class="team-member">
        <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">
            Photo
-           <!-- TO ADD PHOTO: Replace with:
-           <img src="images/team/new-member.jpg" alt="Member Name" class="member-photo">
-           -->
        </div>
        <div class="member-name">[Full Name]</div>
        <div class="member-title">[Position/Title]</div>
-       <p>[Description of research and background]</p>
+       <p>[Research description]</p>
        <a href="https://github.com/username" class="github-link" target="_blank">🔗 GitHub Profile</a>
    </div>
    ```
+4. **Replace placeholders** with actual information
+5. **Add photo** (see photo instructions below)
 
 ### Adding a New Publication
 
-1. Open `publications.html`
-2. Find the "TO ADD NEW PUBLICATIONS" comment
-3. Copy the template and fill in:
+1. **Open `publications.html`**
+2. **Find the template** (search for "TO ADD NEW PUBLICATIONS")
+3. **Add at the top** (keep newest first):
    ```html
    <div class="news-item">
-       <div class="news-date">[YEAR]</div>
+       <div class="news-date">2025</div>
        <p>
-           <strong style="color: #dcdcaa;">[Publication Title]</strong><br>
-           <span style="color: #cccccc;">[Author List]</span><br>
-           <em style="color: #ce9178;">[Journal Name]</em>, <strong>[Volume]</strong>([Issue]), [Pages] ([Year]).<br>
-           <a href="[DOI URL]" target="_blank" style="color: #569cd6; text-decoration: none;">
-               🔗 DOI: [DOI Number]
-           </a>
+           <strong style="color: #dcdcaa;">Your Paper Title</strong><br>
+           <span style="color: #cccccc;">Author, List, Here</span><br>
+           <em style="color: #ce9178;">Journal Name</em>, <strong>Volume</strong>(Issue), Pages (Year).<br>
+           <a href="https://doi.org/..." target="_blank" style="color: #569cd6;">🔗 DOI: ...</a>
        </p>
    </div>
    ```
 
 ### Adding Lab News
 
-1. Open `news.html`
-2. Find the "TO ADD NEW NEWS ITEMS" comment
-3. Copy the template and fill in:
+1. **Open `news.html`**
+2. **Find the template** (search for "TO ADD NEW NEWS ITEMS")
+3. **Add at the top:**
    ```html
    <div class="news-item">
-       <div class="news-date">[Date]</div>
-       <h3 style="color: #dcdcaa; margin-bottom: 0.5rem;">[Icon] [News Title]</h3>
+       <div class="news-date">July 28, 2025</div>
+       <h3 style="color: #dcdcaa; margin-bottom: 0.5rem;">🎉 Your News Title</h3>
        <p style="color: #cccccc; line-height: 1.6;">
-           [News content and details]
+           Your news content here. You can add <strong>bold text</strong> and 
+           <a href="link" style="color: #569cd6;">links</a>.
        </p>
    </div>
    ```
 
-## 📸 Adding Photos
+## 📸 Photo Management
 
-### For Team Members:
-1. Save your photo as `images/team/your-name.jpg`
-2. Replace the placeholder div with:
+### Photo Requirements
+- **Team photos:** Square format, 500x500px minimum
+- **Group photos:** Landscape, 1200x600px recommended  
+- **File format:** JPG or PNG
+- **File size:** Under 500KB each
+- **Naming:** Use descriptive names (no spaces, use hyphens)
+
+### Adding Team Member Photos
+1. **Save photo** as `images/team/firstname-lastname.jpg`
+2. **Replace placeholder** in `team.html`:
    ```html
-   <img src="images/team/your-name.jpg" alt="Your Name" class="member-photo">
+   <!-- Replace this: -->
+   <div class="member-photo placeholder-img">Photo</div>
+   
+   <!-- With this: -->
+   <img src="images/team/firstname-lastname.jpg" alt="Your Name" class="member-photo">
    ```
 
-### For Group Photos:
-1. Save photos as `images/group/group-photo-X.jpg`
-2. Update the `data-image` attribute in the carousel slide
+### Adding Group Photos
+1. **Save photos** as `images/group/group-photo-X.jpg`
+2. **Update carousel** in `index.html`:
+   ```html
+   <div class="carousel-slide placeholder" data-image="images/group/group-photo-4.jpg">
+   ```
+3. **Add new dot** if adding more than 3 photos:
+   ```html
+   <div class="carousel-dot" onclick="goToSlide(3)"></div>
+   ```
 
-### Photo Guidelines:
-- **Team photos:** Square format, 500x500 pixels minimum
-- **Group photos:** Landscape format, 1200x600 pixels recommended
-- **File format:** JPG or PNG
-- **File size:** Keep under 500KB for faster loading
+## 🎨 Customizing Appearance
 
-## 🎨 Customizing Colors and Styles
+### Changing Colors
+All colors are defined in `styles.css`. Current VS Code theme colors:
 
-All visual styling is in `styles.css`. The current color scheme uses VS Code dark theme:
+```css
+/* Main colors - edit these in styles.css */
+background: #1e1e1e;        /* Dark background */
+cards: #252526;             /* Card backgrounds */
+text: #d4d4d4;              /* Main text */
+headings: #dcdcaa;          /* Yellow headings */
+accents: #569cd6;           /* Blue links/accents */
+secondary: #ce9178;         /* Orange secondary text */
+```
 
-- **Background:** `#1e1e1e`
-- **Cards:** `#252526`
-- **Text:** `#d4d4d4`
-- **Accents:** `#569cd6` (blue), `#dcdcaa` (yellow), `#ce9178` (orange)
+### Adding Custom Styles
+Add new styles to the bottom of `styles.css`:
 
-To change colors, edit the CSS variables in `styles.css`.
+```css
+/* Custom styles for new features */
+.my-custom-class {
+    background: #252526;
+    padding: 1rem;
+    border-radius: 8px;
+}
+```
 
-## 🚀 Publishing Your Changes
+## 🌐 Publishing Your Website
 
-1. **Test locally:** Open any HTML file in your browser to preview
-2. **Upload to server:** Upload all files to your web hosting service
-3. **Update links:** Make sure all internal links work correctly
+### Option 1: GitHub Pages (Free)
+1. **Create GitHub repository** named `post-lab-website`
+2. **Upload all files** to the repository
+3. **Enable GitHub Pages** in repository settings
+4. **Your site** will be at `https://yourusername.github.io/post-lab-website`
+
+### Option 2: University Web Hosting
+1. **Contact Purdue IT** about web hosting options
+2. **Upload files** to your assigned web directory
+3. **Update permissions** if necessary
+
+### Option 3: Commercial Web Hosting
+1. **Choose provider** (Netlify, Vercel, etc.)
+2. **Upload files** or connect to GitHub repository
+3. **Configure custom domain** if desired
+
+## 🔧 Maintenance Tasks
+
+### Weekly
+- [ ] Check for new publications to add
+- [ ] Update any recent news
+
+### Monthly  
+- [ ] Review team page for accuracy
+- [ ] Update upcoming events in news
+- [ ] Check all links work correctly
+
+### Semester
+- [ ] Update research descriptions
+- [ ] Move graduated students to past members
+- [ ] Add new group photos
+- [ ] Review and update contact information
 
 ## 🆘 Troubleshooting
 
-### Common Issues:
+### "Images not showing"
+- ✅ Check file paths are correct
+- ✅ Ensure files are uploaded to server
+- ✅ Verify file names match exactly (case-sensitive)
 
-**Images not showing:**
-- Check file paths are correct
-- Ensure images are in the right folder
-- Verify file names match exactly (case-sensitive)
+### "Layout looks broken"  
+- ✅ Make sure `styles.css` is uploaded
+- ✅ Check CSS link in HTML file
+- ✅ Clear browser cache
 
-**Layout looks broken:**
-- Make sure `styles.css` is in the same folder as HTML files
-- Check that the CSS link is correct in each HTML file
+### "Page not found"
+- ✅ Check file names match navigation links
+- ✅ Ensure all HTML files are in same directory
+- ✅ Verify server uploaded all files
 
-**Navigation not working:**
-- Verify all HTML files are in the same folder
-- Check that file names match the navigation links
+### "Mobile menu not working"
+- ✅ Include `shared.js` file
+- ✅ Add `<script src="shared.js"></script>` to HTML
 
-## 📋 Monthly Maintenance Checklist
+## 📱 Mobile Responsiveness
 
-- [ ] Add new publications
-- [ ] Update team member information
-- [ ] Add recent lab news
-- [ ] Check for broken links
-- [ ] Update upcoming events
-- [ ] Review and update research descriptions
+The website automatically adapts to mobile devices:
+- **Navigation** becomes hamburger menu
+- **Images** resize appropriately  
+- **Text** adjusts for readability
+- **Grids** stack on small screens
 
-## 🤝 Getting Help
+## 🔒 Security Best Practices
 
-- **For technical issues:** Contact the person who set up the website
-- **For content questions:** Discuss with Dr. Post
-- **For design changes:** Edit `styles.css` or ask for help
+- **Keep backups** of all files
+- **Use HTTPS** for your website URL
+- **Don't include** sensitive information in public files
+- **Validate** any form inputs if you add contact forms
 
-## 📝 Best Practices
+## 🚀 Advanced Features
 
-1. **Keep it current:** Update regularly rather than waiting months
-2. **Be consistent:** Follow the existing format and style
-3. **Test changes:** Always preview before publishing
-4. **Backup:** Keep copies of your files
-5. **Coordinate:** Let others know when you're making major changes
+### Adding a New Page
+1. **Copy `template.html`** to `new-page.html`
+2. **Update title** and navigation
+3. **Add content** using existing styling classes
+4. **Update navigation** in all other HTML files
+
+### Adding JavaScript Functionality
+1. **Include shared.js** in your HTML file:
+   ```html
+   <script src="shared.js"></script>
+   ```
+2. **Use available functions** like mobile navigation, image loading
+3. **Add custom JavaScript** at bottom of HTML file
+
+### Adding Forms
+Use the form template in `template.html` and modify as needed:
+- Contact forms
+- Application forms  
+- Feedback forms
+
+## 📊 Analytics (Optional)
+
+To track website usage:
+1. **Sign up** for Google Analytics
+2. **Add tracking code** to all HTML files
+3. **Monitor** visitor statistics
+
+## 🤝 Collaboration Tips
+
+### Multiple People Editing
+- **Coordinate changes** to avoid conflicts
+- **Test locally** before uploading
+- **Keep backups** before major changes
+- **Use descriptive commit messages** if using Git
+
+### Version Control (Recommended)
+- **Use Git/GitHub** to track changes
+- **Create branches** for major updates
+- **Review changes** before merging
+
+## 📚 Learning Resources
+
+### HTML/CSS Basics
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [W3Schools](https://www.w3schools.com/)
+
+### Advanced Features
+- [CSS Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [JavaScript Basics](https://javascript.info/)
 
 ---
 
-*This website was designed to be maintainable by lab members with basic HTML knowledge. Each page is self-contained and can be edited independently.*
+## 🎉 You're All Set!
+
+Your Post Lab website is now:
+- ✅ **Modular** - Each page can be edited independently
+- ✅ **Maintainable** - Clear instructions for updates
+- ✅ **Professional** - VS Code dark theme styling
+- ✅ **Responsive** - Works on all devices
+- ✅ **Accessible** - Screen reader friendly
+- ✅ **Fast** - Optimized loading and images
+
+**Questions?** Refer to `README.md` for quick editing help, or contact the person who set up your website.
+
+**Happy editing! 🚀**
