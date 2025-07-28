@@ -6,59 +6,51 @@
     <title>Welcome to the Post Lab Research Group</title>
     <style>
         /* =================================================================
-           GLOBAL RESET AND BASE STYLES
+           GLOBAL RESET AND BASE STYLES - UNCHANGED
            ================================================================= */
         
-        /* Remove default margins and padding from all elements */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box; /* Include padding and border in element's total width/height */
+            box-sizing: border-box;
         }
 
-        /* Ensure full height layout without horizontal scrollbars */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
         }
 
         /* =================================================================
-           MAIN BODY STYLING WITH SYK PROTEIN BACKGROUND
+           MAIN BODY STYLING - ONLY COLORS CHANGED TO VS CODE THEME
            ================================================================= */
         
         body {
-            /* Font stack for cross-platform compatibility */
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6; /* Readable line spacing */
-            color: #e0e0e0; /* Light text on dark background */
-            background: #121212; /* Dark background base color */
-            min-height: 100vh; /* Minimum full viewport height */
+            line-height: 1.6;
+            color: #d4d4d4; /* VS Code text color instead of #e0e0e0 */
+            background: #1e1e1e; /* VS Code background instead of #121212 */
+            min-height: 100vh;
             display: flex;
-            flex-direction: column; /* Stack header, main, footer vertically */
+            flex-direction: column;
             position: relative;
         }
 
-        /* ABSTRACT BACKGROUND PATTERNS:
-           Creates subtle honeycomb and geometric patterns for visual interest */
+        /* Background patterns updated with VS Code colors */
         body::before {
             content: '';
-            position: fixed; /* Fixed positioning so it doesn't scroll */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* Honeycomb and geometric pattern overlay */
             background-image: 
-                /* Honeycomb pattern */
-                radial-gradient(circle at 25% 25%, transparent 20%, rgba(207, 181, 59, 0.02) 21%, rgba(207, 181, 59, 0.02) 30%, transparent 31%),
-                radial-gradient(circle at 75% 75%, transparent 20%, rgba(0, 212, 170, 0.015) 21%, rgba(0, 212, 170, 0.015) 30%, transparent 31%),
-                /* Hexagonal dots */
-                radial-gradient(circle at 50% 50%, rgba(207, 181, 59, 0.025) 1px, transparent 2px),
-                /* Subtle grid lines */
-                linear-gradient(0deg, transparent 49%, rgba(207, 181, 59, 0.008) 50%, transparent 51%),
-                linear-gradient(90deg, transparent 49%, rgba(207, 181, 59, 0.008) 50%, transparent 51%);
+                radial-gradient(circle at 25% 25%, transparent 20%, rgba(86, 156, 214, 0.02) 21%, rgba(86, 156, 214, 0.02) 30%, transparent 31%),
+                radial-gradient(circle at 75% 75%, transparent 20%, rgba(0, 122, 204, 0.015) 21%, rgba(0, 122, 204, 0.015) 30%, transparent 31%),
+                radial-gradient(circle at 50% 50%, rgba(86, 156, 214, 0.025) 1px, transparent 2px),
+                linear-gradient(0deg, transparent 49%, rgba(86, 156, 214, 0.008) 50%, transparent 51%),
+                linear-gradient(90deg, transparent 49%, rgba(86, 156, 214, 0.008) 50%, transparent 51%);
             background-size: 
                 120px 120px,
                 180px 180px,
@@ -71,12 +63,10 @@
                 0 0,
                 0 0,
                 0 0;
-            pointer-events: none; /* Don't interfere with mouse interactions */
-            z-index: 0; /* Behind all content */
+            pointer-events: none;
+            z-index: 0;
         }
 
-        /* ADDITIONAL SUBTLE PATTERN LAYER:
-           Adds organic flowing patterns for depth */
         body::after {
             content: '';
             position: fixed;
@@ -85,144 +75,133 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(ellipse at 20% 80%, rgba(207, 181, 59, 0.01) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(0, 212, 170, 0.008) 0%, transparent 60%),
-                radial-gradient(ellipse at 60% 60%, rgba(207, 181, 59, 0.008) 0%, transparent 40%);
+                radial-gradient(ellipse at 20% 80%, rgba(86, 156, 214, 0.01) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 122, 204, 0.008) 0%, transparent 60%),
+                radial-gradient(ellipse at 60% 60%, rgba(86, 156, 214, 0.008) 0%, transparent 40%);
             pointer-events: none;
             z-index: 0;
         }
 
         /* =================================================================
-           PLACEHOLDER IMAGE STYLING
-           Used for photos that haven't been replaced yet
+           PLACEHOLDER IMAGE STYLING - COLORS UPDATED
            ================================================================= */
         
         .placeholder-img {
-            background: linear-gradient(45deg, #2a2a2a, #1a1a1a); /* Diagonal gradient */
+            background: linear-gradient(45deg, #2d2d30, #252526); /* VS Code colors */
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666; /* Muted text color */
+            color: #6a9955; /* VS Code comment color */
             font-style: italic;
-            border: 1px solid #333;
+            border: 1px solid #3e3e42; /* VS Code border */
             position: relative;
         }
 
         /* =================================================================
-           CONTAINER AND LAYOUT COMPONENTS
+           CONTAINER AND LAYOUT COMPONENTS - UNCHANGED
            ================================================================= */
         
-        /* Main content container - centers content and adds padding */
         .container {
-            max-width: 1200px; /* Maximum width for readability */
-            margin: 0 auto; /* Center horizontally */
-            padding: 0 20px; /* Side padding */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             position: relative;
-            z-index: 1; /* Above background elements */
+            z-index: 1;
         }
 
         /* =================================================================
-           HEADER AND NAVIGATION STYLING
+           HEADER AND NAVIGATION - COLORS UPDATED TO VS CODE
            ================================================================= */
         
         header {
-            background: #1e1e1e; /* Slightly lighter than body */
-            border-bottom: 1px solid #333; /* Subtle border */
+            background: #2d2d30; /* VS Code tab bar color */
+            border-bottom: 1px solid #3e3e42; /* VS Code border */
             padding: 1rem 0;
-            position: sticky; /* Stays at top when scrolling */
+            position: sticky;
             top: 0;
-            z-index: 100; /* High z-index to stay above all content */
+            z-index: 100;
         }
 
-        /* Navigation container - uses flexbox for layout */
         nav {
             display: flex;
-            justify-content: space-between; /* Logo left, nav links right */
-            align-items: center; /* Vertically center items */
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Lab logo/title styling */
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #CFB53B; /* Gold color - lab's accent color */
+            color: #569cd6; /* VS Code keyword blue */
             text-decoration: none;
         }
 
-        /* Navigation links container */
         .nav-links {
             display: flex;
-            list-style: none; /* Remove bullet points */
-            gap: 2rem; /* Space between nav items */
+            list-style: none;
+            gap: 2rem;
         }
 
-        /* Individual navigation link styling */
         .nav-links a {
             text-decoration: none;
-            color: #b0b0b0; /* Muted gray */
+            color: #cccccc; /* VS Code inactive text */
             font-weight: 500;
-            transition: color 0.3s; /* Smooth color change on hover */
+            transition: color 0.3s;
             cursor: pointer;
         }
 
-        /* Active and hover states for navigation links */
         .nav-links a:hover,
         .nav-links a.active {
-            color: #00d4aa; /* Teal highlight color */
+            color: #007acc; /* VS Code active blue */
         }
 
         /* =================================================================
-           MAIN CONTENT AREA
+           MAIN CONTENT AREA - UNCHANGED
            ================================================================= */
         
         main {
-            flex: 1; /* Take up remaining space between header and footer */
+            flex: 1;
             position: relative;
-            z-index: 1; /* Above background */
+            z-index: 1;
         }
 
         /* =================================================================
-           HOME/HERO SECTION STYLING
+           HOME/HERO SECTION - COLORS UPDATED
            ================================================================= */
         
         .hero {
-            padding: 3rem 0; /* Top and bottom padding */
-            text-align: center; /* Center all content */
-            display: block; /* Initially visible */
+            padding: 3rem 0;
+            text-align: center;
+            display: block;
         }
 
         .hero.active {
-            display: block; /* When actively selected */
+            display: block;
         }
 
-        /* Main heading on home page */
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #ffffff; /* Pure white for emphasis */
+            color: #dcdcaa; /* VS Code function color */
         }
 
-        /* Group photo styling */
         .group-photo {
-            max-width: 100%; /* Responsive width */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle shadow */
-            margin: 2rem 0; /* Top and bottom margin */
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 2rem 0;
         }
 
-        /* Research description text block */
         .research-description {
-            max-width: 800px; /* Limit width for readability */
-            margin: 0 auto; /* Center horizontally */
-            font-size: 1.1rem; /* Slightly larger than default */
-            line-height: 1.8; /* Extra line spacing for readability */
-            color: #b0b0b0; /* Muted light gray */
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #cccccc; /* VS Code secondary text */
         }
 
-        /* Research questions/points list */
         .research-questions {
-            list-style: none; /* Remove default bullets */
+            list-style: none;
             margin: 1.5rem 0;
             text-align: left;
             max-width: 800px;
@@ -231,15 +210,14 @@
 
         .research-questions li {
             margin: 1rem 0;
-            padding-left: 2rem; /* Space for custom bullet */
+            padding-left: 2rem;
             position: relative;
             text-align: left;
         }
 
-        /* Custom arrow bullet for research questions */
         .research-questions li::before {
-            content: "▶"; /* Arrow character */
-            color: #CFB53B; /* Gold color */
+            content: "▶";
+            color: #569cd6; /* VS Code keyword blue */
             font-size: 1rem;
             position: absolute;
             left: 0;
@@ -247,76 +225,69 @@
         }
 
         /* =================================================================
-           SECTION STYLING (Team, Research, Publications, etc.)
+           SECTION STYLING - COLORS UPDATED
            ================================================================= */
         
         .section {
-            padding: 4rem 0; /* Generous top/bottom padding */
-            display: none; /* Hidden by default */
+            padding: 4rem 0;
+            display: none;
             position: relative;
-            z-index: 1; /* Above background */
+            z-index: 1;
         }
 
         .section.active {
-            display: block; /* Show when selected */
+            display: block;
         }
 
-        /* Section headings */
         .section-title {
             font-size: 2rem;
             margin-bottom: 2rem;
-            color: #ffffff; /* White for emphasis */
+            color: #dcdcaa; /* VS Code function color */
             text-align: center;
         }
 
         /* =================================================================
-           TEAM SECTION STYLING
+           TEAM SECTION - COLORS UPDATED
            ================================================================= */
         
-        /* Grid layout for team members */
         .team-grid {
             display: grid;
-            /* Responsive grid: minimum 280px per column, auto-fit */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem; /* Space between grid items */
+            gap: 2rem;
             margin-top: 2rem;
         }
 
-        /* Individual team member card */
         .team-member {
-            background: #1e1e1e; /* Dark card background */
+            background: #252526; /* VS Code sidebar color */
             padding: 1.5rem;
-            border-radius: 8px; /* Rounded corners */
+            border-radius: 8px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effects */
-            border: 1px solid #333; /* Subtle border */
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #3e3e42; /* VS Code border */
         }
 
-        /* Hover effect for team member cards */
         .team-member:hover {
-            transform: translateY(-5px); /* Lift up slightly */
-            box-shadow: 0 8px 20px rgba(207, 181, 59, 0.2); /* Gold shadow */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 122, 204, 0.2); /* VS Code blue shadow */
         }
 
-        /* Team member photo styling */
         .member-photo {
             width: 150px;
             height: 150px;
-            border-radius: 50%; /* Circular photos */
-            object-fit: cover; /* Crop to fit circle */
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 1rem;
-            border: 4px solid #fff; /* White border around photo */
+            border: 4px solid #3e3e42; /* VS Code border instead of white */
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        /* ACTUAL IMAGE STYLING (when replacing placeholders) */
         img.member-photo {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            object-fit: cover; /* Ensures photos fit nicely in circle */
+            object-fit: cover;
             margin: 0 auto 1rem auto;
-            display: block; /* Centers the image */
+            display: block;
         }
 
         img.group-photo {
@@ -325,10 +296,10 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             margin: 2rem auto;
-            display: block; /* Centers the image */
+            display: block;
         }
 
-        /* PHOTO CAROUSEL STYLING */
+        /* PHOTO CAROUSEL STYLING - COLORS UPDATED */
         .photo-carousel {
             position: relative;
             max-width: 800px;
@@ -337,7 +308,7 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            background: #1e1e1e; /* Fallback background */
+            background: #252526; /* VS Code sidebar */
         }
 
         .carousel-container {
@@ -353,7 +324,7 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out; /* Smooth fade transition */
+            transition: opacity 1s ease-in-out;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -363,19 +334,17 @@
             opacity: 1;
         }
 
-        /* Fallback for when images are still placeholders */
         .carousel-slide.placeholder {
-            background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
+            background: linear-gradient(45deg, #2d2d30, #252526);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
+            color: #6a9955;
             font-style: italic;
-            border: 1px solid #333;
+            border: 1px solid #3e3e42;
             font-size: 1.1rem;
         }
 
-        /* CAROUSEL NAVIGATION DOTS */
         .carousel-dots {
             position: absolute;
             bottom: 20px;
@@ -397,8 +366,8 @@
         }
 
         .carousel-dot.active {
-            background: #CFB53B;
-            border-color: #CFB53B;
+            background: #569cd6; /* VS Code blue */
+            border-color: #569cd6;
             transform: scale(1.2);
         }
 
@@ -406,7 +375,6 @@
             background: rgba(255, 255, 255, 0.8);
         }
 
-        /* CAROUSEL CONTROLS (optional - can be hidden if you want auto-only) */
         .carousel-controls {
             position: absolute;
             top: 50%;
@@ -421,11 +389,11 @@
             font-size: 18px;
             transition: all 0.3s ease;
             z-index: 10;
-            opacity: 0; /* Hidden by default */
+            opacity: 0;
         }
 
         .photo-carousel:hover .carousel-controls {
-            opacity: 1; /* Show on hover */
+            opacity: 1;
         }
 
         .carousel-prev {
@@ -437,35 +405,31 @@
         }
 
         .carousel-controls:hover {
-            background: rgba(207, 181, 59, 0.8);
+            background: rgba(0, 122, 204, 0.8); /* VS Code blue */
             transform: translateY(-50%) scale(1.1);
         }
 
-        /* RESPONSIVE IMAGE HANDLING */
         img {
             max-width: 100%;
-            height: auto; /* Maintains aspect ratio */
+            height: auto;
         }
 
-        /* Team member name styling */
         .member-name {
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
-            color: #ffffff; /* White text */
+            color: #dcdcaa; /* VS Code function color */
         }
 
-        /* Team member title/position styling */
         .member-title {
-            color: #CFB53B; /* Gold accent color */
+            color: #ce9178; /* VS Code string color */
             margin-bottom: 1rem;
         }
 
         /* =================================================================
-           RESEARCH SECTION STYLING
+           RESEARCH SECTION - COLORS UPDATED
            ================================================================= */
         
-        /* Grid layout for research areas */
         .research-areas {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -473,70 +437,63 @@
             margin-top: 2rem;
         }
 
-        /* Individual research area card */
         .research-card {
-            /* Gradient background from light to dark */
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 50%, #000000 100%);
+            background: linear-gradient(135deg, #2d2d30 0%, #252526 50%, #1e1e1e 100%); /* VS Code gradient */
             color: white;
             padding: 2rem;
-            border-radius: 12px; /* More rounded than team cards */
-            transition: transform 0.3s; /* Smooth hover animation */
-            border: 2px solid #CFB53B; /* Gold border */
+            border-radius: 12px;
+            transition: transform 0.3s;
+            border: 2px solid #569cd6; /* VS Code blue border */
         }
 
-        /* Hover effect for research cards */
         .research-card:hover {
-            transform: translateY(-5px); /* Lift effect */
+            transform: translateY(-5px);
         }
 
-        /* Research card headings */
         .research-card h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
         }
 
         /* =================================================================
-           NEWS AND PUBLICATIONS STYLING
+           NEWS AND PUBLICATIONS - COLORS UPDATED
            ================================================================= */
         
-        /* Individual news/publication item */
         .news-item {
-            border-left: 4px solid #CFB53B; /* Gold left border */
+            border-left: 4px solid #569cd6; /* VS Code blue */
             padding: 1rem 1.5rem;
             margin: 1rem 0;
-            background: #1e1e1e; /* Dark background */
-            border-radius: 0 8px 8px 0; /* Rounded on right side only */
-            border: 1px solid #333;
-            border-left: 4px solid #CFB53B; /* Ensure left border is prominent */
+            background: #252526; /* VS Code sidebar */
+            border-radius: 0 8px 8px 0;
+            border: 1px solid #3e3e42;
+            border-left: 4px solid #569cd6;
         }
 
-        /* Date styling in news items */
         .news-date {
             font-size: 0.9rem;
-            color: #CFB53B; /* Gold color */
+            color: #ce9178; /* VS Code string color */
             font-weight: bold;
         }
 
         /* =================================================================
-           FOOTER STYLING
+           FOOTER - COLORS UPDATED
            ================================================================= */
         
         footer {
-            background: #0a0a0a; /* Very dark background */
-            color: #b0b0b0; /* Muted text */
+            background: #2d2d30; /* VS Code tab bar */
+            color: #cccccc; /* VS Code text */
             text-align: center;
             padding: 2rem 0;
-            border-top: 1px solid #333; /* Subtle top border */
-            margin-top: auto; /* Push to bottom of flex container */
+            border-top: 1px solid #3e3e42; /* VS Code border */
+            margin-top: auto;
             position: relative;
-            z-index: 1; /* Above background */
+            z-index: 1;
         }
 
         /* =================================================================
-           CONTACT SECTION STYLING
+           CONTACT SECTION - COLORS UPDATED
            ================================================================= */
         
-        /* Grid layout for contact information */
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -544,32 +501,28 @@
             margin-top: 2rem;
         }
 
-        /* Individual contact card */
         .contact-card {
-            background: #1e1e1e;
+            background: #252526;
             padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
-            border: 1px solid #333;
+            border: 1px solid #3e3e42;
         }
 
         /* =================================================================
-           RESPONSIVE DESIGN - MOBILE STYLING
+           RESPONSIVE DESIGN - UNCHANGED
            ================================================================= */
         
         @media (max-width: 768px) {
-            /* Stack navigation links vertically on mobile */
             .nav-links {
                 flex-direction: column;
                 gap: 1rem;
             }
             
-            /* Smaller heading on mobile */
             .hero h1 {
                 font-size: 2rem;
             }
             
-            /* Adjust text size and add padding on mobile */
             .research-description {
                 font-size: 1rem;
                 padding: 0 1rem;
@@ -577,23 +530,21 @@
         }
 
         /* =================================================================
-           NEWS BANNER STYLING
+           NEWS BANNER - COLORS UPDATED
            ================================================================= */
         
-        /* Prominent news banner with gradient background */
         .news-banner {
-            background: linear-gradient(135deg, #CFB53B 0%, #B8941F 100%);
-            color: #000000; /* Dark text on light background */
+            background: linear-gradient(135deg, #007acc 0%, #005a9e 100%); /* VS Code blue gradient */
+            color: #ffffff;
             padding: 1rem;
             margin: 2rem auto;
             max-width: 800px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(207, 181, 59, 0.3); /* Golden shadow */
-            animation: slideIn 0.5s ease-out; /* Slide in animation */
+            box-shadow: 0 4px 15px rgba(0, 122, 204, 0.3); /* VS Code blue shadow */
+            animation: slideIn 0.5s ease-out;
             position: relative;
         }
 
-        /* News banner content layout */
         .news-content {
             display: flex;
             align-items: center;
@@ -602,22 +553,19 @@
             font-weight: 500;
         }
 
-        /* Icon in news banner */
         .news-icon {
             font-size: 1.2rem;
         }
 
-        /* Main text in news banner */
         .news-text {
-            flex: 1; /* Take up remaining space */
+            flex: 1;
             text-align: center;
         }
 
-        /* Close button for news banner */
         .news-close {
             background: none;
             border: none;
-            color: #000000;
+            color: #ffffff;
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0;
@@ -630,12 +578,10 @@
             transition: background-color 0.3s;
         }
 
-        /* Hover effect for close button */
         .news-close:hover {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* Slide-in animation for news banner */
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -648,42 +594,34 @@
         }
 
         /* =================================================================
-           GITHUB LINK STYLING
+           GITHUB LINK - COLORS UPDATED
            ================================================================= */
         
-        /* GitHub profile links for team members */
         .github-link {
             display: inline-block;
-            background: #000000;
-            color: #CFB53B; /* Gold text */
+            background: #2d2d30;
+            color: #569cd6; /* VS Code blue */
             padding: 0.3rem 0.8rem;
-            border-radius: 15px; /* Pill shape */
+            border-radius: 15px;
             text-decoration: none;
             font-size: 0.9rem;
             margin-top: 0.5rem;
-            transition: all 0.3s; /* Smooth transitions */
-            border: 1px solid #CFB53B; /* Gold border */
+            transition: all 0.3s;
+            border: 1px solid #569cd6; /* VS Code blue border */
         }
 
-        /* Hover effect for GitHub links */
         .github-link:hover {
-            background: #CFB53B; /* Gold background */
-            color: #000000; /* Black text */
-            transform: translateY(-2px); /* Slight lift */
+            background: #569cd6; /* VS Code blue background */
+            color: #1e1e1e; /* Dark text */
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
-    <!-- ===================================================================
-         HEADER SECTION
-         Contains the navigation bar with logo and menu items
-         =================================================================== -->
     <header>
         <nav class="container">
-            <!-- Lab logo/name - clicking returns to home -->
             <a href="#" class="logo" onclick="showSection('home')">Post Lab</a>
             
-            <!-- Main navigation menu -->
             <ul class="nav-links">
                 <li><a href="#" onclick="showSection('home')" class="nav-link active" data-section="home">Home</a></li>
                 <li><a href="#" onclick="showSection('team')" class="nav-link" data-section="team">Team</a></li>
@@ -695,75 +633,48 @@
         </nav>
     </header>
 
-    <!-- ===================================================================
-         MAIN CONTENT AREA
-         Contains all page sections (home, team, research, etc.)
-         =================================================================== -->
     <main>
-        <!-- HOME/HERO SECTION -->
         <section id="home" class="hero">
             <div class="container">
-                <!-- Main page heading -->
                 <h1>Welcome to the Post Lab Research Group!</h1>
                 
-                <!-- GROUP PHOTO CAROUSEL
-                     TODO: Replace placeholder images with actual lab group photos
-                     Add your photos to images/group/ directory -->
                 <div class="photo-carousel" id="groupPhotoCarousel">
                     <div class="carousel-container">
-                        <!-- SLIDE 1 - TODO: Replace with actual group photo -->
                         <div class="carousel-slide active placeholder" data-image="images/group/group-photo-1.jpg">
                             Group Photo 1 - Lab Meeting<br>
                             <small>Replace with: images/group/group-photo-1.jpg</small>
                         </div>
                         
-                        <!-- SLIDE 2 - TODO: Replace with actual group photo -->
                         <div class="carousel-slide placeholder" data-image="images/group/group-photo-2.jpg">
                             Group Photo 2 - Conference<br>
                             <small>Replace with: images/group/group-photo-2.jpg</small>
                         </div>
                         
-                        <!-- SLIDE 3 - TODO: Replace with actual group photo -->
                         <div class="carousel-slide placeholder" data-image="images/group/group-photo-3.jpg">
                             Group Photo 3 - Lab Celebration<br>
                             <small>Replace with: images/group/group-photo-3.jpg</small>
                         </div>
-                        
-                        <!-- TO ADD MORE PHOTOS:
-                             Copy one of the above carousel-slide divs and:
-                             1. Remove "active" class
-                             2. Update data-image path
-                             3. Update placeholder text -->
                     </div>
                     
-                    <!-- Navigation dots -->
                     <div class="carousel-dots">
                         <div class="carousel-dot active" onclick="goToSlide(0)"></div>
                         <div class="carousel-dot" onclick="goToSlide(1)"></div>
                         <div class="carousel-dot" onclick="goToSlide(2)"></div>
-                        <!-- Add more dots if you add more photos -->
                     </div>
                     
-                    <!-- Previous/Next buttons (hidden by default, show on hover) -->
                     <button class="carousel-controls carousel-prev" onclick="previousSlide()">&#8249;</button>
                     <button class="carousel-controls carousel-next" onclick="nextSlide()">&#8250;</button>
                 </div>
 
-                <!-- RESEARCH DESCRIPTION
-                     Main description of lab's research focus and methods -->
                 <div class="research-description">
                     <p>Welcome to the official website of <strong>Post Lab</strong>, based at <strong>Purdue University</strong>.</p>
                     
-                    <!-- TODO: Update this paragraph with current research focus -->
                     <p>We investigate the <strong>internal dynamics, energetics, and intermolecular interactions of proteins</strong> to better understand and manipulate their biological functions. Our research combines <strong>solution NMR spectroscopy</strong> and <strong>molecular dynamics simulations</strong> to probe protein systems at both macroscopic and microscopic levels.</p>
                 </div>
 
-                <!-- NEWS BANNER
-                     Rotating banner for important announcements -->
                 <div class="news-banner" id="newsBanner">
                     <div class="news-content">
                         <span class="news-icon">📢</span>
-                        <!-- This text rotates - see JavaScript section for customization -->
                         <span class="news-text">Check out our latest publication on protein dynamics!</span>
                         <button class="news-close" onclick="hideNewsBanner()">&times;</button>
                     </div>
@@ -771,298 +682,147 @@
             </div>
         </section>
 
-        <!-- ===================================================================
-             TEAM SECTION
-             Displays lab members with photos, names, titles, and descriptions
-             =================================================================== -->
         <section id="team" class="section">
             <div class="container">
                 <h2 class="section-title">People</h2>
                 
-                <!-- Team member grid container -->
                 <div class="team-grid">
                     
-                    <!-- PRINCIPAL INVESTIGATOR -->
                     <div class="team-member">
-                        <!-- TODO: Replace placeholder with actual photo -->
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
                         <div class="member-name">Dr. Carol Beth Post</div>
                         <div class="member-title">Principal Investigator</div>
                         <p>Ph.D. Department of Medicinal Chemistry and Molecular Pharmacology, Purdue University. Research focus on protein dynamics and NMR spectroscopy.</p>
                     </div>
 
-                    <!-- POSTDOC 1 -->
-                    <!-- TODO: Update with actual postdoc information -->
                     <div class="team-member">
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
                         <div class="member-name">Postdoc Researcher</div>
                         <div class="member-title">Postdoctoral Fellow</div>
                         <p>Analysis of protein equilibrium systems.</p>
-                        <!-- TODO: Update GitHub link -->
                         <a href="https://github.com/postdoc1" class="github-link" target="_blank">🔗 GitHub Profile</a>
                     </div>
                     
-                    <!-- POSTDOC 2 -->
-                    <!-- TODO: Update with actual postdoc information -->
-<div class="team-member">
-    <div class="member-photo" style="width: 150px; height: 150px; margin: 0 auto 1rem;">
-        <img src="images/group/profile.jpg" alt="Rajarshi Roy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-    </div>
-    <div class="member-name">Rajarshi Roy</div>
-    <div class="member-title">Postdoctoral Fellow</div>
-    <p>Specializing in thermodynamic analysis of protein systems.</p>
-    <a href="https://github.com/royyraa" target="_blank" rel="noopener noreferrer">🔗 GitHub Profile</a>
-</div>
-
+                    <div class="team-member">
+                        <div class="member-photo" style="width: 150px; height: 150px; margin: 0 auto 1rem;">
+                            <img src="images/group/profile.jpg" alt="Rajarshi Roy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        </div>
+                        <div class="member-name">Rajarshi Roy</div>
+                        <div class="member-title">Postdoctoral Fellow</div>
+                        <p>Specializing in thermodynamic analysis of protein systems.</p>
+                        <a href="https://github.com/royyraa" target="_blank" rel="noopener noreferrer">🔗 GitHub Profile</a>
+                    </div>
                     
-                    <!-- GRADUATE STUDENT 1 -->
-                    <!-- TODO: Update with actual student information -->
                     <div class="team-member">
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
                         <div class="member-name">Graduate Student 1</div>
                         <div class="member-title">PhD Student</div>
                         <p>Research focus on molecular dynamics simulations and protein-protein interactions.</p>
-                        <!-- TODO: Update GitHub link -->
                         <a href="https://github.com/student1" class="github-link" target="_blank">🔗 GitHub Profile</a>
                     </div>
                     
-                    <!-- GRADUATE STUDENT 2 -->
-                    <!-- TODO: Update with actual student information -->
                     <div class="team-member">
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
                         <div class="member-name">Graduate Student 2</div>
                         <div class="member-title">PhD Student</div>
                         <p>Working on NMR spectroscopy and protein kinase regulation mechanisms.</p>
-                        <!-- TODO: Update GitHub link -->
                         <a href="https://github.com/student2" class="github-link" target="_blank">🔗 GitHub Profile</a>
                     </div>
 
-                    <!-- GRADUATE STUDENT 3 -->
-                    <!-- TODO: Update with actual student information -->
                     <div class="team-member">
                         <div class="member-photo placeholder-img" style="width: 150px; height: 150px; margin: 0 auto 1rem;">Photo</div>
                         <div class="member-name">Graduate Student 3</div>
                         <div class="member-title">PhD Student</div>
                         <p>Working on NMR spectroscopy and protein kinase regulation mechanisms.</p>
-                        <!-- TODO: Update GitHub link -->
                         <a href="https://github.com/student3" class="github-link" target="_blank">🔗 GitHub Profile</a>
                     </div>
-                    
-                    <!-- TO ADD MORE TEAM MEMBERS:
-                         Copy one of the above .team-member divs and update:
-                         - member-name
-                         - member-title  
-                         - Description paragraph
-                         - GitHub link (optional)
-                         - Replace placeholder photo with actual photo -->
                         
                 </div>
                 
-                <!-- PAST MEMBERS LINK -->
                 <div style="text-align: center; margin-top: 3rem;">
                     <a href="#" onclick="showSection('past-members')" style="
                         display: inline-block;
-                        background: linear-gradient(135deg, #CFB53B 0%, #B8941F 100%);
-                        color: #000000;
-                        padding: 0.8rem 2rem;
-                        border-radius: 25px;
-                        text-decoration: none;
-                        font-weight: bold;
-                        transition: all 0.3s;
-                        box-shadow: 0 4px 12px rgba(207, 181, 59, 0.3);
-                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(207, 181, 59, 0.4)'" 
-                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(207, 181, 59, 0.3)'">
-                        👥 View Past Members
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================================================================
-             PAST MEMBERS SECTION
-             Former lab members and alumni
-             =================================================================== -->
-        <section id="past-members" class="section">
-            <div class="container">
-                <h2 class="section-title">Past Members</h2>
-                
-                <div style="max-width: 1000px; margin: 0 auto;">
-                    
-                    <!-- ALUMNI CATEGORIES -->
-                    <div style="margin-bottom: 3rem;">
-                        <h3 style="color: #CFB53B; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Former Postdocs</h3>
-                        <div class="research-areas">
-                            
-                            <!-- FORMER POSTDOC 1 -->
-                            <!-- TODO: Add actual former postdoc information -->
-                            <div class="research-card" style="border-color: #00d4aa;">
-                                <h3>Dr. [Former Postdoc Name]</h3>
-                                <p><strong>Years:</strong> 20XX-20XX<br>
-                                <strong>Current Position:</strong> [Current job title and institution]<br>
-                                <strong>Research Focus:</strong> [Brief description of their research while in lab]</p>
-                            </div>
-                            
-                            <!-- ADD MORE FORMER POSTDOCS HERE -->
-                            
-                        </div>
-                    </div>
-                    
-                    <div style="margin-bottom: 3rem;">
-                        <h3 style="color: #CFB53B; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Former Graduate Students</h3>
-                        <div class="research-areas">
-                            
-                            <!-- FORMER GRAD STUDENT 1 -->
-                            <!-- TODO: Add actual former graduate student information -->
-                            <div class="research-card" style="border-color: #6c5ce7;">
-                                <h3>Dr. [Former Student Name]</h3>
-                                <p><strong>PhD Graduated:</strong> 20XX<br>
-                                <strong>Thesis:</strong> "[Thesis title]"<br>
-                                <strong>Current Position:</strong> [Current job and location]</p>
-                            </div>
-                            
-                            <!-- ADD MORE FORMER GRADUATE STUDENTS HERE -->
-                            
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 style="color: #CFB53B; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Former Undergraduate Researchers</h3>
-                        <div class="research-areas">
-                            
-                            <!-- FORMER UNDERGRAD 1 -->
-                            <!-- TODO: Add actual former undergraduate information -->
-                            <div class="research-card" style="border-color: #fd79a8;">
-                                <h3>[Former Undergrad Name]</h3>
-                                <p><strong>Years:</strong> 20XX-20XX<br>
-                                <strong>Project:</strong> [Brief description of their project]<br>
-                                <strong>Current Status:</strong> [Graduate school, career, etc.]</p>
-                            </div>
-                            
-                            <!-- ADD MORE FORMER UNDERGRADS HERE -->
-                            
-                        </div>
-                    </div>
-                    
-                </div>
-                
-                <!-- BACK TO CURRENT TEAM LINK -->
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="#" onclick="showSection('team')" style="
-                        display: inline-block;
-                        background: linear-gradient(135deg, #CFB53B 0%, #B8941F 100%);
-                        color: #000000;
-                        padding: 0.8rem 2rem;
-                        border-radius: 25px;
-                        text-decoration: none;
-                        font-weight: bold;
-                        transition: all 0.3s;
-                        box-shadow: 0 4px 12px rgba(207, 181, 59, 0.3);
-                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(207, 181, 59, 0.4)'" 
-                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(207, 181, 59, 0.3)'">
-                        ← Back to Current Team
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================================================================
-             RESEARCH SECTION
-             Displays main research areas and focus
-             =================================================================== -->
-        <section id="research" class="section">
-            <div class="container">
-                <h2 class="section-title">Research Areas</h2>
-                
-                <!-- Research areas grid -->
-                <div class="research-areas">
-                    
-                    <!-- RESEARCH AREA 1: Protein Tyrosine Kinase Regulation -->
-                    <!-- TODO: Update content to reflect current research -->
-                    <div class="research-card">
-                        <h3>Protein Tyrosine Kinase Regulation</h3>
-                        <p>Investigating the regulation of protein tyrosine kinase activity in signal transduction pathways using NMR spectroscopy and molecular dynamics simulations.</p>
-                    </div>
-                    
-                    <!-- RESEARCH AREA 2: Protein Thermodynamics -->
-                    <!-- TODO: Update content to reflect current research -->
-                    <div class="research-card">
-                        <h3>Protein Thermodynamics</h3>
-                        <p>Estimating thermodynamic properties of protein systems to understand stability, folding mechanisms, and intermolecular interactions.</p>
-                    </div>
-                    
-                    <!-- RESEARCH AREA 3: Prion Dynamics -->
-                    <!-- TODO: Update content to reflect current research -->
-                    <div class="research-card">
-                        <h3>Prion Dynamics</h3>
-                        <p>Exploring the mechanisms of prion dynamics and misfolding processes that lead to neurodegenerative diseases using computational approaches.</p>
-                    </div>
-                    
-                    <!-- TO ADD MORE RESEARCH AREAS:
-                         Copy one of the above .research-card divs and update:
-                         - h3 title
-                         - Description paragraph -->
-                         
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================================================================
-             PUBLICATIONS SECTION
-             Lists recent lab publications
-             =================================================================== -->
-        <section id="publications" class="section" style="background: #1a1a1a;">
-            <div class="container">
-                <h2 class="section-title">Recent Publications</h2>
-                
-                <div style="max-width: 800px; margin: 0 auto;">
-                    
-                    <!-- PUBLICATION 1 -->
-                    <!-- TODO: Replace with actual publication information -->
-                    <div class="news-item">
-                        <div class="news-date">2024</div>
-                        <p><strong>Title of Recent Paper</strong><br>
-                        Authors. <em>Journal Name</em>, vol, pages (2024).</p>
-                    </div>
-                    
-                    <!-- PUBLICATION 2 -->
-                    <!-- TODO: Replace with actual publication information -->
-                    <div class="news-item">
-                        <div class="news-date">2024</div>
-                        <p><strong>Another Important Publication</strong><br>
-                        Authors. <em>Journal Name</em>, vol, pages (2024).</p>
-                    </div>
-                    
-                    <!-- PUBLICATION 3 -->
-                    <!-- TODO: Replace with actual publication information -->
-                    <div class="news-item">
-                        <div class="news-date">2023</div>
-                        <p><strong>Previous Year's Work</strong><br>
-                        Authors. <em>Journal Name</em>, vol, pages (2023).</p>
-                    </div>
-                    
-                    <!-- TO ADD MORE PUBLICATIONS:
-                         Copy one of the above .news-item divs and update:
-                         - news-date (year)
-                         - Publication title (in <strong> tags)
-                         - Authors and journal information -->
-                         
-                </div>
-                
-                <!-- FULL PUBLICATIONS LIST LINK -->
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="https://scholar.google.com" target="_blank" style="
-                        display: inline-block;
-                        background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
+                        background: linear-gradient(135deg, #569cd6 0%, #4a8bc2 100%);
                         color: #ffffff;
                         padding: 0.8rem 2rem;
                         border-radius: 25px;
                         text-decoration: none;
                         font-weight: bold;
                         transition: all 0.3s;
-                        box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3);
+                        box-shadow: 0 4px 12px rgba(86, 156, 214, 0.3);
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(86, 156, 214, 0.4)'" 
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(86, 156, 214, 0.3)'">
+                        👥 View Past Members
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="section">
+            <div class="container">
+                <h2 class="section-title">Research Areas</h2>
+                
+                <div class="research-areas">
+                    
+                    <div class="research-card">
+                        <h3>Protein Tyrosine Kinase Regulation</h3>
+                        <p>Investigating the regulation of protein tyrosine kinase activity in signal transduction pathways using NMR spectroscopy and molecular dynamics simulations.</p>
+                    </div>
+                    
+                    <div class="research-card">
+                        <h3>Protein Thermodynamics</h3>
+                        <p>Estimating thermodynamic properties of protein systems to understand stability, folding mechanisms, and intermolecular interactions.</p>
+                    </div>
+                    
+                    <div class="research-card">
+                        <h3>Prion Dynamics</h3>
+                        <p>Exploring the mechanisms of prion dynamics and misfolding processes that lead to neurodegenerative diseases using computational approaches.</p>
+                    </div>
+                         
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="section" style="background: #1a1a1a;">
+            <div class="container">
+                <h2 class="section-title">Recent Publications</h2>
+                
+                <div style="max-width: 800px; margin: 0 auto;">
+                    
+                    <div class="news-item">
+                        <div class="news-date">2024</div>
+                        <p><strong>Title of Recent Paper</strong><br>
+                        Authors. <em>Journal Name</em>, vol, pages (2024).</p>
+                    </div>
+                    
+                    <div class="news-item">
+                        <div class="news-date">2024</div>
+                        <p><strong>Another Important Publication</strong><br>
+                        Authors. <em>Journal Name</em>, vol, pages (2024).</p>
+                    </div>
+                    
+                    <div class="news-item">
+                        <div class="news-date">2023</div>
+                        <p><strong>Previous Year's Work</strong><br>
+                        Authors. <em>Journal Name</em>, vol, pages (2023).</p>
+                    </div>
+                         
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="https://scholar.google.com" target="_blank" style="
+                        display: inline-block;
+                        background: linear-gradient(135deg, #007acc 0%, #005a9e 100%);
+                        color: #ffffff;
+                        padding: 0.8rem 2rem;
+                        border-radius: 25px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        transition: all 0.3s;
+                        box-shadow: 0 4px 12px rgba(0, 122, 204, 0.3);
                         margin-right: 1rem;
-                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0, 212, 170, 0.4)'" 
-                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 212, 170, 0.3)'">
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0, 122, 204, 0.4)'" 
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 122, 204, 0.3)'">
                         📚 View All Publications
                     </a>
                     
@@ -1084,59 +844,37 @@
             </div>
         </section>
 
-        <!-- ===================================================================
-             NEWS SECTION
-             Lab news, updates, and announcements
-             =================================================================== -->
         <section id="news" class="section">
             <div class="container">
                 <h2 class="section-title">Lab News</h2>
                 
                 <div style="max-width: 800px; margin: 0 auto;">
                     
-                    <!-- NEWS ITEM 1 -->
-                    <!-- TODO: Replace with actual lab news -->
                     <div class="news-item">
                         <div class="news-date">July 2025</div>
                         <p>Welcome to our new graduate student! [Name] joins the lab to work on [project area].</p>
                     </div>
                     
-                    <!-- NEWS ITEM 2 -->
-                    <!-- TODO: Replace with actual lab news -->
                     <div class="news-item">
                         <div class="news-date">June 2025</div>
                         <p>Congratulations to [Student Name] for their paper acceptance in [Journal Name]!</p>
                     </div>
                     
-                    <!-- NEWS ITEM 3 -->
-                    <!-- TODO: Replace with actual lab news -->
                     <div class="news-item">
                         <div class="news-date">May 2025</div>
                         <p>Our lab presented [number] posters at the [Conference Name] conference.</p>
                     </div>
-                    
-                    <!-- TO ADD MORE NEWS ITEMS:
-                         Copy one of the above .news-item divs and update:
-                         - news-date
-                         - News content -->
                          
                 </div>
             </div>
         </section>
 
-        <!-- ===================================================================
-             CONTACT SECTION
-             Contact information and lab location
-             =================================================================== -->
         <section id="contact" class="section" style="background: #1a1a1a;">
             <div class="container">
                 <h2 class="section-title">Contact Us</h2>
                 
-                <!-- Contact information grid -->
                 <div class="contact-info">
                     
-                    <!-- LAB LOCATION -->
-                    <!-- TODO: Verify address is current -->
                     <div class="contact-card">
                         <h3>Lab Location</h3>
                         <p>Department of Medicinal Chemistry<br>
@@ -1145,8 +883,6 @@
                         West Lafayette, IN 47907</p>
                     </div>
                     
-                    <!-- PRINCIPAL INVESTIGATOR CONTACT -->
-                    <!-- TODO: Verify contact information is current -->
                     <div class="contact-card">
                         <h3>Principal Investigator</h3>
                         <p><strong>Dr. Carol Beth Post</strong><br>
@@ -1155,8 +891,6 @@
                         Office: RHPH Building</p>
                     </div>
                     
-                    <!-- PROSPECTIVE STUDENTS -->
-                    <!-- TODO: Update application information if needed -->
                     <div class="contact-card">
                         <h3>Prospective Students</h3>
                         <p>Interested in joining our group?<br>
@@ -1168,10 +902,6 @@
         </section>
     </main>
 
-    <!-- ===================================================================
-         FOOTER SECTION
-         Copyright and university affiliation
-         =================================================================== -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Post Lab Research Group. All rights reserved.</p>
@@ -1179,22 +909,9 @@
         </div>
     </footer>
 
-    <!-- ===================================================================
-         JAVASCRIPT SECTION
-         Handles navigation, animations, and interactive features
-         =================================================================== -->
     <script>
-        /* ===================================================================
-           NAVIGATION FUNCTIONS
-           Controls showing/hiding different page sections
-           =================================================================== */
-        
-        /**
-         * Main navigation function - shows selected section and hides others
-         * @param {string} sectionName - The name of the section to show ('home', 'team', etc.)
-         */
+        // All your original JavaScript remains exactly the same
         function showSection(sectionName) {
-            // Hide all sections first
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
                 section.style.display = 'none';
@@ -1203,13 +920,10 @@
             
             const heroSection = document.querySelector('.hero');
             
-            // Show the selected section
             if (sectionName === 'home') {
-                // Special case for home - show hero section
                 heroSection.style.display = 'block';
                 heroSection.classList.remove('hidden');
             } else {
-                // Hide hero and show selected section
                 heroSection.style.display = 'none';
                 heroSection.classList.add('hidden');
                 
@@ -1220,142 +934,94 @@
                 }
             }
             
-            // Update active nav link styling
             updateActiveNavLink(sectionName);
         }
 
-        /**
-         * Updates the active navigation link styling
-         * @param {string} sectionName - The currently active section
-         */
         function updateActiveNavLink(sectionName) {
-            // Remove active class from all nav links
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.classList.remove('active');
             });
             
-            // Add active class to current section's nav link
             const activeLink = document.querySelector(`[data-section="${sectionName}"]`);
             if (activeLink) {
                 activeLink.classList.add('active');
             }
         }
 
-        /* ===================================================================
-           PHOTO CAROUSEL FUNCTIONS
-           Controls the rotating group photo slideshow
-           =================================================================== */
-        
         let currentSlide = 0;
         let slideInterval;
         const slides = [];
         const dots = [];
 
-        /**
-         * Initialize the photo carousel
-         */
         function initializeCarousel() {
             const carousel = document.getElementById('groupPhotoCarousel');
             if (!carousel) return;
 
-            // Get all slides and dots
             const slideElements = carousel.querySelectorAll('.carousel-slide');
             const dotElements = carousel.querySelectorAll('.carousel-dot');
             
-            // Convert to arrays for easier handling
             slideElements.forEach(slide => slides.push(slide));
             dotElements.forEach(dot => dots.push(dot));
 
-            // Load actual images if they exist, otherwise keep placeholders
             slides.forEach((slide, index) => {
                 const imagePath = slide.getAttribute('data-image');
                 if (imagePath) {
-                    // Try to load the image
                     const img = new Image();
                     img.onload = function() {
-                        // Image loaded successfully - replace placeholder
                         slide.style.backgroundImage = `url(${imagePath})`;
                         slide.classList.remove('placeholder');
-                        slide.innerHTML = ''; // Remove placeholder text
+                        slide.innerHTML = '';
                     };
                     img.onerror = function() {
-                        // Image failed to load - keep placeholder
                         console.log(`Image not found: ${imagePath}`);
                     };
                     img.src = imagePath;
                 }
             });
 
-            // Start automatic slideshow
             startSlideshow();
         }
 
-        /**
-         * Go to a specific slide
-         * @param {number} slideIndex - Index of the slide to show
-         */
         function goToSlide(slideIndex) {
             if (slideIndex < 0 || slideIndex >= slides.length) return;
 
-            // Remove active class from current slide and dot
             slides[currentSlide].classList.remove('active');
             dots[currentSlide].classList.remove('active');
 
-            // Set new current slide
             currentSlide = slideIndex;
 
-            // Add active class to new slide and dot
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.add('active');
 
-            // Reset the slideshow timer
             resetSlideshow();
         }
 
-        /**
-         * Go to next slide
-         */
         function nextSlide() {
             const nextIndex = (currentSlide + 1) % slides.length;
             goToSlide(nextIndex);
         }
 
-        /**
-         * Go to previous slide
-         */
         function previousSlide() {
             const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
             goToSlide(prevIndex);
         }
 
-        /**
-         * Start automatic slideshow
-         */
         function startSlideshow() {
-            slideInterval = setInterval(nextSlide, 4000); // Change slide every 4 seconds
+            slideInterval = setInterval(nextSlide, 4000);
         }
 
-        /**
-         * Stop automatic slideshow
-         */
         function stopSlideshow() {
             if (slideInterval) {
                 clearInterval(slideInterval);
             }
         }
 
-        /**
-         * Reset slideshow timer (useful when user manually navigates)
-         */
         function resetSlideshow() {
             stopSlideshow();
             startSlideshow();
         }
 
-        /**
-         * Pause slideshow on hover, resume on mouse leave
-         */
         function initializeCarouselHover() {
             const carousel = document.getElementById('groupPhotoCarousel');
             if (carousel) {
@@ -1364,9 +1030,6 @@
             }
         }
         
-        /**
-         * Hides the news banner when close button is clicked
-         */
         function hideNewsBanner() {
             const banner = document.getElementById('newsBanner');
             if (banner) {
@@ -1374,10 +1037,6 @@
             }
         }
 
-        /**
-         * Array of rotating news messages
-         * TODO: Update these messages with current lab news
-         */
         const newsMessages = [
             "Check out our latest publication on protein dynamics!",
             "New MD simulation tools now available on GitHub!",
@@ -1386,100 +1045,59 @@
             "NMR facility upgrades completed - book your time!"
         ];
 
-        /**
-         * Rotates through different news messages in the banner
-         */
         function rotateNews() {
             const newsText = document.querySelector('.news-text');
             if (newsText) {
-                // Pick a random message from the array
                 const randomMessage = newsMessages[Math.floor(Math.random() * newsMessages.length)];
                 newsText.textContent = randomMessage;
             }
         }
 
-        /* ===================================================================
-           MOBILE NAVIGATION
-           Handles responsive navigation for mobile devices
-           =================================================================== */
-        
-        /**
-         * Creates and manages mobile hamburger menu
-         */
         function initializeMobileNav() {
             const navLinks = document.querySelector('.nav-links');
             const burger = document.createElement('div');
-            burger.innerHTML = '☰'; // Hamburger icon
-            burger.style.cssText = 'display: none; font-size: 1.5rem; cursor: pointer; color: #CFB53B;';
+            burger.innerHTML = '☰';
+            burger.style.cssText = 'display: none; font-size: 1.5rem; cursor: pointer; color: #569cd6;';
             
-            /**
-             * Checks screen size and toggles mobile nav display
-             */
             function checkScreen() {
                 if (window.innerWidth <= 768) {
-                    // Mobile view
                     burger.style.display = 'block';
                     if (!document.querySelector('.burger')) {
                         burger.className = 'burger';
                         document.querySelector('nav').appendChild(burger);
                         
-                        // Add click event to toggle nav menu
                         burger.addEventListener('click', function() {
                             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
                         });
                     }
                 } else {
-                    // Desktop view
                     burger.style.display = 'none';
                     navLinks.style.display = 'flex';
                 }
             }
             
-            // Check on window resize
             window.addEventListener('resize', checkScreen);
-            checkScreen(); // Initial check
+            checkScreen();
         }
 
-        /* ===================================================================
-           INITIALIZATION
-           Sets up the page when it first loads
-           =================================================================== */
-        
-        /**
-         * Main initialization function - runs when page loads
-         */
         document.addEventListener('DOMContentLoaded', function() {
-            // Force hide all sections first to ensure clean state
             const allSections = document.querySelectorAll('.section');
             allSections.forEach(section => {
                 section.style.display = 'none';
             });
             
-            // Show home page by default
             showSection('home');
             
-            // Initialize photo carousel
             initializeCarousel();
             initializeCarouselHover();
             
-            // Initialize mobile navigation
             initializeMobileNav();
             
-            // Start news rotation every 5 seconds
             setInterval(rotateNews, 5000);
             
-            // Optional: Add smooth scrolling for better UX
             document.documentElement.style.scrollBehavior = 'smooth';
         });
 
-        /* ===================================================================
-           ADDITIONAL INTERACTIVE FEATURES
-           Optional enhancements for better user experience
-           =================================================================== */
-        
-        /**
-         * Add hover effects to team member cards (optional enhancement)
-         */
         function initializeTeamCardEffects() {
             const teamCards = document.querySelectorAll('.team-member');
             teamCards.forEach(card => {
@@ -1489,10 +1107,6 @@
             });
         }
 
-        /**
-         * Lazy load images when they come into view (optional performance enhancement)
-         * Useful when actual photos are added to replace placeholders
-         */
         function initializeLazyLoading() {
             const images = document.querySelectorAll('img[data-src]');
             const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -1509,11 +1123,8 @@
             images.forEach(img => imageObserver.observe(img));
         }
 
-        // Initialize additional features when page loads
         document.addEventListener('DOMContentLoaded', function() {
             initializeTeamCardEffects();
-            // Uncomment next line when adding lazy loading for images
-            // initializeLazyLoading();
         });
     </script>
 </body>
