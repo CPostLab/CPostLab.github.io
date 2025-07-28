@@ -4,7 +4,7 @@
 
 ## 🚀 Quick Start
 
-Your website is now broken into separate, manageable files. Each lab member can edit specific pages without affecting others!
+our website is now broken into separate, manageable files. Each lab member can edit specific pages without affecting others!
 
 ### 📁 Complete File Structure
 
@@ -41,7 +41,7 @@ post-lab-website/
 
 ## 🎯 Who Edits What
 
-### 🏠 **index.html** - Dr. Post or Lab Manager
+### 🏠 **index.html** - Dr. Post or website manager
 - Research description
 - Group photos
 - News banner messages
@@ -51,7 +51,7 @@ post-lab-website/
 - Add/remove members as people join/leave
 - Update photos, descriptions, GitHub links
 
-### 🔬 **research.html** - Dr. Post or Senior Researchers  
+### 🔬 **research.html** - Carol or website manager
 - Research area descriptions
 - Current projects and methods
 - Add new research directions
@@ -67,7 +67,7 @@ post-lab-website/
 - Conference presentations
 - Equipment updates
 
-### 📞 **contact.html** - Dr. Post or Lab Manager
+### 📞 **contact.html** - Carol or website manager
 - Contact information
 - Office locations
 - Application procedures
@@ -184,24 +184,6 @@ Add new styles to the bottom of `styles.css`:
 }
 ```
 
-## 🌐 Publishing Your Website
-
-### Option 1: GitHub Pages (Free)
-1. **Create GitHub repository** named `post-lab-website`
-2. **Upload all files** to the repository
-3. **Enable GitHub Pages** in repository settings
-4. **Your site** will be at `https://yourusername.github.io/post-lab-website`
-
-### Option 2: University Web Hosting
-1. **Contact Purdue IT** about web hosting options
-2. **Upload files** to your assigned web directory
-3. **Update permissions** if necessary
-
-### Option 3: Commercial Web Hosting
-1. **Choose provider** (Netlify, Vercel, etc.)
-2. **Upload files** or connect to GitHub repository
-3. **Configure custom domain** if desired
-
 ## 🔧 Maintenance Tasks
 
 ### Weekly
@@ -277,12 +259,6 @@ Use the form template in `template.html` and modify as needed:
 - Application forms  
 - Feedback forms
 
-## 📊 Analytics (Optional)
-
-To track website usage:
-1. **Sign up** for Google Analytics
-2. **Add tracking code** to all HTML files
-3. **Monitor** visitor statistics
 
 ## 🤝 Collaboration Tips
 
@@ -309,15 +285,7 @@ To track website usage:
 
 ---
 
-## 🎉 You're All Set!
-
-Your Post Lab website is now:
-- ✅ **Modular** - Each page can be edited independently
-- ✅ **Maintainable** - Clear instructions for updates
-- ✅ **Professional** - VS Code dark theme styling
-- ✅ **Responsive** - Works on all devices
-- ✅ **Accessible** - Screen reader friendly
-- ✅ **Fast** - Optimized loading and images
+## 🎉 We're All Set!
 
 **Questions?** Refer to `README.md` for quick editing help, or contact the person who set up your website.
 
